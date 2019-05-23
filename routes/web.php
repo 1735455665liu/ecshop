@@ -12,3 +12,11 @@
 */
 
 Route::get('/','Home\HomeControoler@index');    //首页
+Route::get('product-list.html','Goods\GoodsController@goodslists');    //商品详情
+
+
+
+Route::post('/cart/cartAdd','Cart\CartController@cartAdd');    //添加购物车
+Route::get('/cart/cartList','Cart\CartController@cartList');    //购物车列表
+
+

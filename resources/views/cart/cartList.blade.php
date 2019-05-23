@@ -9,17 +9,17 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="HandheldFriendly" content="True">
 
-    <link rel="stylesheet" href="css/materialize.css">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/owl.theme.css">
-    <link rel="stylesheet" href="css/owl.transitions.css">
-    <link rel="stylesheet" href="css/fakeLoader.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/materialize.css">
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/owl.theme.css">
+    <link rel="stylesheet" href="/css/owl.transitions.css">
+    <link rel="stylesheet" href="/css/fakeLoader.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="/img/favicon.png">
 
 </head>
 <body>
@@ -41,7 +41,7 @@
 <div class="side-nav-panel-right">
     <ul id="slide-out-right" class="side-nav side-nav-panel collapsible">
         <li class="profil">
-            <img src="img/profile.jpg" alt="">
+            <img src="/img/profile.jpg" alt="">
             <h2>John Doe</h2>
         </li>
         <li><a href="setting.html"><i class="fa fa-cog"></i>Settings</a></li>
@@ -262,7 +262,7 @@
                     <div class="cart-1">
                         <div class="row">
                             <div class="col s5">
-                                <img src="img/cart-menu1.png" alt="">
+                                <img src="/img/cart-menu1.png" alt="">
                             </div>
                             <div class="col s7">
                                 <h5><a href="">Fashion Men's</a></h5>
@@ -297,7 +297,7 @@
                     <div class="cart-2">
                         <div class="row">
                             <div class="col s5">
-                                <img src="img/cart-menu2.png" alt="">
+                                <img src="/img/cart-menu2.png" alt="">
                             </div>
                             <div class="col s7">
                                 <h5><a href="">Fashion Men's</a></h5>
@@ -362,172 +362,75 @@
 </div>
 <!-- end cart menu -->
 
-<!-- slider -->
-<div class="slider">
-
-    <ul class="slides">
-        <li>
-            <img src="img/slide1.jpg" alt="">
-            <div class="caption slider-content  center-align">
-                <h2>WELCOME TO MSTORE</h2>
-                <h4>Lorem ipsum dolor sit amet.</h4>
-                <a href="" class="btn button-default">SHOP NOW</a>
-            </div>
-        </li>
-        <li>
-            <img src="img/slide2.jpg" alt="">
-            <div class="caption slider-content center-align">
-                <h2>JACKETS BUSINESS</h2>
-                <h4>Lorem ipsum dolor sit amet.</h4>
-                <a href="" class="btn button-default">SHOP NOW</a>
-            </div>
-        </li>
-        <li>
-            <img src="img/slide3.jpg" alt="">
-            <div class="caption slider-content center-align">
-                <h2>FASHION SHOP</h2>
-                <h4>Lorem ipsum dolor sit amet.</h4>
-                <a href="" class="btn button-default">SHOP NOW</a>
-            </div>
-        </li>
-    </ul>
-
-</div>
-<!-- end slider -->
-
-<!-- features -->
-<div class="features section">
+<!-- cart -->
+<div class="cart section">
     <div class="container">
-        <div class="row">
-            <div class="col s6">
-                <div class="content">
-                    <div class="icon">
-                        <i class="fa fa-car"></i>
-                    </div>
-                    <h6>Free Shipping</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
-                </div>
-            </div>
-            <div class="col s6">
-                <div class="content">
-                    <div class="icon">
-                        <i class="fa fa-dollar"></i>
-                    </div>
-                    <h6>Money Back</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
-                </div>
-            </div>
+        <div class="pages-head">
+            <h3>购物车列表</h3>
         </div>
-        <div class="row margin-bottom-0">
-            <div class="col s6">
-                <div class="content">
-                    <div class="icon">
-                        <i class="fa fa-lock"></i>
-                    </div>
-                    <h6>Secure Payment</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
-                </div>
-            </div>
-            <div class="col s6">
-                <div class="content">
-                    <div class="icon">
-                        <i class="fa fa-support"></i>
-                    </div>
-                    <h6>24/7 Support</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end features -->
-
-<!-- quote -->
-<div class="section quote">
-    <div class="container">
-        <h4>FASHION UP TO 50% OFF</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ducimus illo hic iure eveniet</p>
-    </div>
-</div>
-<!-- end quote -->
-
-<!-- product -->
-<div class="section product">
-    <div class="container">
-        <div class="section-head">
-            <h4>最新推荐</h4>
-            <div class="divider-top"></div>
-            <div class="divider-bottom"></div>
-        </div>
-        <div class="row">
-            @foreach($goodsInfo as $k=>$v)
-            <div class="col s6">
-                <div class="content">
-                    <img src="/goodsImg/{{$v->goods_img}}" alt="">
-                    <h6><a href="">{{$v->goods_name}}</a></h6>
-                    <div class="price">
-                        {{$v->self_price}} <span>{{$v->market_price}}</span>
-                    </div>
-                    <button class="btn button-default">点击加入购物车</button>
-                    <button class="btn button-default" id="cart">加入收藏</button>
-                </div>
-            </div>
-
-                @endforeach
-        </div>
-
-    </div>
-</div>
-<!-- end product -->
-
-<!-- promo -->
-<div class="promo section">
-    <div class="container">
         <div class="content">
-            <h4>PRODUCT BUNDLE</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-            <button class="btn button-default">SHOP NOW</button>
-        </div>
-    </div>
-</div>
-<!-- end promo -->
-
-<!-- product -->
-<div class="section product">
-    <div class="container">
-        <div class="section-head">
-            <h4>火爆推荐</h4>
-            <div class="divider-top"></div>
-            <div class="divider-bottom"></div>
-        </div>
-        <div class="row">
-            @foreach($goodsInfoHost as $k=>$v)
-            <div class="col s6">
-                <div class="content">
-                    <img src="/goodsImg/{{$v->goods_img}}" alt="">
-                    <h6><a href="">{{$v->goods_name}}</a></h6>
-                    <div class="price">
-                        {{$v->self_price}} <span>{{$v->market_price}}</span>
+            @foreach($cartInfo as $k=>$v)
+            <div class="cart-1">
+                <div class="row">
+                    <div class="col s5">
+                        <h5>商品图片</h5>
                     </div>
-                    <button class="btn button-default">加入购物车</button>
-                    <button class="btn button-default" id="cart">加入收藏</button>
+                    <div class="col s7">
+                        <img src="/goodsImg/{{$v['goods_img']}}" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>商品名称</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5><a href="">{{$v['goods_name']}}</a></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>购买数量</h5>
+                    </div>
+                    <div class="col s7">
+                        <input value="{{$v['buy_number']}}" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>商品价格</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5>${{$v['self_price']}}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>删除</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5><i class="fa fa-trash"></i></h5>
+                    </div>
                 </div>
             </div>
+            <div class="divider"></div>
                 @endforeach
+
         </div>
-        <div class="pagination-product">
-            {{ $goodsInfoHost->links() }}
-            {{--<ul>--}}
-                {{--<li class="active">1</li>--}}
-                {{--<li><a href="">2</a></li>--}}
-                {{--<li><a href="">3</a></li>--}}
-                {{--<li><a href="">4</a></li>--}}
-                {{--<li><a href="">5</a></li>--}}
-            {{--</ul>--}}
+        <div class="total">
+
+            <div class="row">
+                <div class="col s7">
+                    <h6>Total</h6>
+                </div>
+                <div class="col s5">
+                    <h6>${{$amount}}</h6>
+                </div>
+            </div>
         </div>
+        <button class="btn button-default">Process to Checkout</button>
     </div>
 </div>
-<!-- end product -->
+<!-- end cart -->
 
 <!-- loader -->
 <div id="fakeLoader"></div>
@@ -555,12 +458,12 @@
 <!-- end footer -->
 
 <!-- scripts -->
-<script src="js/jquery.min.js"></script>
-<script src="js/materialize.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/fakeLoader.min.js"></script>
-<script src="js/animatedModal.min.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/fakeLoader.min.js"></script>
+<script src="/js/animatedModal.min.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 </html>
