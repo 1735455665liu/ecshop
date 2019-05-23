@@ -51,11 +51,8 @@ class RegController extends Controller
         ];
         $res=UserInfo::insert($data);
         if($res==true){
-            $response=[
-                'errno'=>0,
-                'msg'=>'ok',
-            ];
-            die(json_encode($response,JSON_UNESCAPED_UNICODE));
+            echo '注册成功，3秒后跳转值登陆页面';
+            header("refresh:3;url=login.html");
         }else{
             $response=[
                 'errno'=>10001,
