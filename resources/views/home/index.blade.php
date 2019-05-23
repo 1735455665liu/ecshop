@@ -57,7 +57,7 @@
 <div class="navbar-bottom">
     <div class="row">
         <div class="col s2">
-            <a href="index.html"><i class="fa fa-home"></i></a>
+            <a href="\"><i class="fa fa-home"></i></a>
         </div>
         <div class="col s2">
             <a href="/colllist.html"><i class="fa fa-heart"></i></a>
