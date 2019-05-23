@@ -2,7 +2,7 @@
 <html lang="zxx">
 <head>
     <meta charset="UTF-8">
-    <title>Mstore - Online Shop Mobile Template</title>
+    <title>烨氏集团 - Online Shop Mobile Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1  maximum-scale=1 user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -28,7 +28,7 @@
 <div class="navbar-top">
     <!-- site brand	 -->
     <div class="site-brand">
-        <a href="index.html"><h1>Mstore</h1></a>
+        <a href="index.html"><h1>烨氏集团</h1></a>
     </div>
     <!-- end site brand	 -->
     <div class="side-nav-panel-right">
@@ -385,7 +385,7 @@
                         <img src="/goodsImg/{{$v->goods_img}}" alt="">
                         <h6><a href="">{{$v->goods_name}}</a></h6>
                         <div class="price">
-                            {{$v->self_price}} <span>{{$v->market_price}}</span>
+                            ￥{{$v->self_price}} <span>￥{{$v->market_price}}</span>
                         </div>
                         <button class="btn button-default">点击加入购物车</button>
                         <button class="btn button-default" id="cart">加入收藏</button>
