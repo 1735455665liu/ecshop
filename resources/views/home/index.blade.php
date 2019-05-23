@@ -597,9 +597,9 @@
                     _this.attr('coll_status',1);
                 }
                 alert(data.msg);
+                history.go(0);
             },
             'json'
         );
-        history.go(0);
     })
 </script>

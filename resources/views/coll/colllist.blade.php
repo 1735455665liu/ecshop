@@ -369,101 +369,51 @@
             <h3>收藏列表</h3>
         </div>
         <div class="content">
-            <div class="cart-1">
-                <div class="row">
-                    <div class="col s5">
-                        <h5>Image</h5>
+            @foreach($res as $k=>$v)
+                <div class="cart-1">
+                    <div class="row">
+                        <div class="col s5">
+                            <h5>Image</h5>
+                        </div>
+                        <div class="col s7">
+                            <img src="/goodsImg/{{$v->goods_img}}" alt="">
+                        </div>
                     </div>
-                    <div class="col s7">
-                        <img src="img/wishlist1.png" alt="">
+                    <div class="row">
+                        <div class="col s5">
+                            <h5>Name</h5>
+                        </div>
+                        <div class="col s7">
+                            <h5><a href="">{{$v->goods_name}}</a></h5>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col s5">
-                        <h5>Name</h5>
+                    <div class="row">
+                        <div class="col s5">
+                            <h5>Stock Status</h5>
+                        </div>
+                        <div class="col s7">
+                            <h5>{{$v->goods_num}}</h5>
+                        </div>
                     </div>
-                    <div class="col s7">
-                        <h5><a href="">Fashion Men's</a></h5>
+                    <div class="row">
+                        <div class="col s5">
+                            <h5>Price</h5>
+                        </div>
+                        <div class="col s7">
+                            <h5>${{$v->self_price}}</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col s5">
-                        <h5>Stock Status</h5>
-                    </div>
-                    <div class="col s7">
-                        <h5>In Stock</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s5">
-                        <h5>Price</h5>
-                    </div>
-                    <div class="col s7">
-                        <h5>$20</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s5">
-                        <h5>Action</h5>
-                    </div>
-                    <div class="col s7">
-                        <h5><i class="fa fa-trash"></i></h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col 12">
-                        <button class="btn button-default">SEND TO CART</button>
+                    <div class="row">
+                        <div class="col s5">
+                            <h5>Action</h5>
+                        </div>
+                        <div class="col s7">
+                            <h5><i class="fa fa-trash del" goods_id ="{{$v->goods_id}}"></i></h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="divider"></div>
-            <div class="cart-2">
-                <div class="row">
-                    <div class="col s5">
-                        <h5>Image</h5>
-                    </div>
-                    <div class="col s7">
-                        <img src="img/wishlist2.png" alt="">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s5">
-                        <h5>Name</h5>
-                    </div>
-                    <div class="col s7">
-                        <h5><a href="">Fashion Men's</a></h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s5">
-                        <h5>Stock Status</h5>
-                    </div>
-                    <div class="col s7">
-                        <h5>In Stock</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s5">
-                        <h5>Price</h5>
-                    </div>
-                    <div class="col s7">
-                        <h5>$20</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s5">
-                        <h5>Action</h5>
-                    </div>
-                    <div class="col s7">
-                        <h5><i class="fa fa-trash"></i></h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col 12">
-                        <button class="btn button-default">SEND TO CART</button>
-                    </div>
-                </div>
-            </div>
+                <div class="divider"></div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -501,6 +451,20 @@
 <script src="js/fakeLoader.min.js"></script>
 <script src="js/animatedModal.min.js"></script>
 <script src="js/main.js"></script>
-
+<script>
+    $('.del').click(function(){
+        var _this=$(this);
+        var goods_id = _this.attr('goods_id');
+        $.post(
+            '/Coll/colldel',
+            {goods_id:goods_id},
+            function(data){
+               alert(data.msg);
+                history.go(0);
+            },
+            'json'
+    );
+    })
+</script>
 </body>
 </html>
