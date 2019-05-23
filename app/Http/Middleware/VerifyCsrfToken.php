@@ -21,6 +21,8 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'regdo',
         'CheckUserName',
-        'logindo'
+        'logindo',
+        '/cart/*',
+        '/Coll/*',
     ];
 }
