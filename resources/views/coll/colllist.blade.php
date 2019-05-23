@@ -2,7 +2,7 @@
 <html lang="zxx">
 <head>
     <meta charset="UTF-8">
-    <title>烨氏集团 - Online Shop Mobile Template</title>
+    <title>Mstore - Online Shop Mobile Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1  maximum-scale=1 user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -28,7 +28,7 @@
 <div class="navbar-top">
     <!-- site brand	 -->
     <div class="site-brand">
-        <a href="index.html"><h1>烨氏集团</h1></a>
+        <a href="index.html"><h1>Mstore</h1></a>
     </div>
     <!-- end site brand	 -->
     <div class="side-nav-panel-right">
@@ -60,7 +60,7 @@
             <a href="index.html"><i class="fa fa-home"></i></a>
         </div>
         <div class="col s2">
-            <a href="/colllist.html"><i class="fa fa-heart"></i></a>
+            <a href="wishlist.html"><i class="fa fa-heart"></i></a>
         </div>
         <div class="col s4">
             <div class="bar-center">
@@ -362,188 +362,112 @@
 </div>
 <!-- end cart menu -->
 
-<!-- slider -->
-<div class="slider">
-
-    <ul class="slides">
-        <li>
-            <img src="img/1.jpg" alt="">
-            <div class="caption slider-content  center-align">
-                <h2>欢迎来到烨氏集团</h2>
-                <h4>烨氏出品 必属精品</h4>
-                <a href="" class="btn button-default">点击我抓紧购物吧</a>
-            </div>
-        </li>
-        <li>
-            <img src="img/1.jpg" alt="">
-            <div class="caption slider-content center-align">
-                <h2>贴心服务</h2>
-                <h4>七天无理由退换货,购物无忧!</h4>
-                <a href="" class="btn button-default">点击我抓紧购物吧</a>
-            </div>
-        </li>
-        <li>
-            <img src="img/1.jpg" alt="">
-            <div class="caption slider-content center-align">
-                <h2>名人名言</h2>
-                <h4>激浊而扬清，废贪而立廉 ——刘子烨
-                </h4>
-                <a href="" class="btn button-default">点击我抓紧购物吧</a>
-            </div>
-        </li>
-    </ul>
-
-</div>
-<!-- end slider -->
-
-<!-- features -->
-<div class="features section">
+<!-- wishlist -->
+<div class="wishlist section">
     <div class="container">
-        <div class="row">
-            <div class="col s6">
-                <div class="content">
-                    <div class="icon">
-                        <i class="fa fa-car"></i>
-                    </div>
-                    <h6>免费送货</h6>
-                    <p>支持终身无理由退货</p>
-
-                </div>
-            </div>
-            <div class="col s6">
-                <div class="content">
-                    <div class="icon">
-                        <i class="fa fa-dollar"></i>
-                    </div>
-                    <h6>退款</h6>
-                    <p>售后无忧</p>
-
-                </div>
-            </div>
+        <div class="pages-head">
+            <h3>收藏列表</h3>
         </div>
-        <div class="row margin-bottom-0">
-            <div class="col s6">
-                <div class="content">
-                    <div class="icon">
-                        <i class="fa fa-lock"></i>
-                    </div>
-                    <h6>安全付款</h6>
-                    <p>集团采用国际领先加密技术</p>
-
-                </div>
-            </div>
-            <div class="col s6">
-                <div class="content">
-                    <div class="icon">
-                        <i class="fa fa-support"></i>
-                    </div>
-                    <h6>全天候支持</h6>
-                    <p>有疑问抓紧联系客服吧!</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end features -->
-
-<!-- quote -->
-<div class="section quote">
-    <div class="container">
-        <h4>前方高能</h4>
-        <p>全场消费烨公子买单 尖叫声</p>
-    </div>
-</div>
-<!-- end quote -->
-
-<!-- product -->
-<div class="section product">
-    <div class="container">
-        <div class="section-head">
-            <h4>最新推荐</h4>
-            <div class="divider-top"></div>
-            <div class="divider-bottom"></div>
-        </div>
-        <div class="row">
-            @foreach($goodsInfo as $k=>$v)
-            <div class="col s6" goods_id= "{{$v->goods_id}}">
-                <div class="content">
-                    <img src="/goodsImg/{{$v->goods_img}}" alt="">
-                    <h6><a href="">{{$v->goods_name}}</a></h6>
-                    <div class="price">
-                        ￥{{$v->self_price}} <span>￥{{$v->market_price}}</span>
-                    </div>
-                    <button class="btn button-default">点击加入购物车</button>
-                    <button class="btn button-default Coll" goods_id="{{$v->goods_id}}" coll_status ="{{$v->coll_status}}">
-                        @if($v->coll_status==2)
-                            <span>收藏</span>
-                        @else
-                            <span>取消收藏</span>
-                        @endif
-                    </button>
-                </div>
-            </div>
-
-                @endforeach
-        </div>
-
-    </div>
-</div>
-<!-- end product -->
-
-<!-- promo -->
-<div class="promo section">
-    <div class="container">
         <div class="content">
-            <h4>温馨提示</h4>
-            <p>国际一手货源</p>
-            <button class="btn button-default">SHOP NOW</button>
-        </div>
-    </div>
-</div>
-<!-- end promo -->
-
-<!-- product -->
-<div class="section product">
-    <div class="container">
-        <div class="section-head">
-            <h4>火爆推荐</h4>
-            <div class="divider-top"></div>
-            <div class="divider-bottom"></div>
-        </div>
-        <div class="row">
-            @foreach($goodsInfoHost as $k=>$v)
-            <div class="col s6" >
-                <div class="content">
-                    <img src="/goodsImg/{{$v->goods_img}}" alt="">
-                    <h6><a href="">{{$v->goods_name}}</a></h6>
-                    <div class="price">
-                        ￥{{$v->self_price}} <span>￥{{$v->market_price}}</span>
+            <div class="cart-1">
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Image</h5>
                     </div>
-                    <button class="btn button-default">加入购物车</button>
-                    <button class="btn button-default Coll" goods_id="{{$v->goods_id}}" coll_status ="{{$v->coll_status}}">
-                        @if($v->coll_status==2)
-                            <span>收藏</span>
-                        @else
-                            <span>取消收藏</span>
-                        @endif
-                    </button>
+                    <div class="col s7">
+                        <img src="img/wishlist1.png" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Name</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5><a href="">Fashion Men's</a></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Stock Status</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5>In Stock</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Price</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5>$20</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Action</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5><i class="fa fa-trash"></i></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col 12">
+                        <button class="btn button-default">SEND TO CART</button>
+                    </div>
                 </div>
             </div>
-                @endforeach
-        </div>
-        <div class="pagination-product">
-            {{ $goodsInfoHost->links() }}
-            {{--<ul>--}}
-                {{--<li class="active">1</li>--}}
-                {{--<li><a href="">2</a></li>--}}
-                {{--<li><a href="">3</a></li>--}}
-                {{--<li><a href="">4</a></li>--}}
-                {{--<li><a href="">5</a></li>--}}
-            {{--</ul>--}}
+            <div class="divider"></div>
+            <div class="cart-2">
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Image</h5>
+                    </div>
+                    <div class="col s7">
+                        <img src="img/wishlist2.png" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Name</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5><a href="">Fashion Men's</a></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Stock Status</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5>In Stock</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Price</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5>$20</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s5">
+                        <h5>Action</h5>
+                    </div>
+                    <div class="col s7">
+                        <h5><i class="fa fa-trash"></i></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col 12">
+                        <button class="btn button-default">SEND TO CART</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<!-- end product -->
+<!-- end wishlist -->
 
 <!-- loader -->
 <div id="fakeLoader"></div>
@@ -553,8 +477,8 @@
 <div class="footer">
     <div class="container">
         <div class="about-us-foot">
-            <h6>烨氏集团</h6>
-            <p>烨氏集团成立于1984年,1988年进入国际行业,经过三十余年的发展,成为国内领先的集团之一</p>
+            <h6>Mstore</h6>
+            <p>is a lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing elit.</p>
         </div>
         <div class="social-media">
             <a href=""><i class="fa fa-facebook"></i></a>
@@ -564,7 +488,7 @@
             <a href=""><i class="fa fa-instagram"></i></a>
         </div>
         <div class="copyright">
-            <span>© 2019 版权所有 烨氏集团</span>
+            <span>© 2017 All Right Reserved</span>
         </div>
     </div>
 </div>
@@ -580,26 +504,3 @@
 
 </body>
 </html>
-<script>
-    $('.Coll').click(function(){
-        var _this=$(this);
-        var goods_id = _this.attr('goods_id');
-        var coll_status = _this.attr('coll_status');
-        $.post(
-            '/Coll/colladd',
-            {goods_id:goods_id,coll_status:coll_status},
-            function(data){
-                if(data.msg==0){
-                    _this.find("span").text('取消收藏');
-                    _this.attr('coll_status',2);
-                }else{
-                    _this.find("span").text('收藏');
-                    _this.attr('coll_status',1);
-                }
-                alert(data.msg);
-            },
-            'json'
-        );
-        history.go(0);
-    })
-</script>

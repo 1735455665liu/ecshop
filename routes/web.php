@@ -14,7 +14,6 @@
 Route::get('/','Home\HomeControoler@index');    //首页
 Route::get('product-list.html','Goods\GoodsController@goodslists');    //商品详情
 
-<<<<<<< HEAD
 
 
 Route::post('/cart/cartAdd','Cart\CartController@cartAdd');    //添加购物车
@@ -23,5 +22,3 @@ Route::post('/cart/cartDel','Cart\CartController@cartDel');    //购物车列表
 
 
 
-=======
->>>>>>> 2f8d48b4ee79324a10bc4619f5eb22759bbb3382
