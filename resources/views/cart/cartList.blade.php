@@ -408,7 +408,7 @@
                         <h5>删除</h5>
                     </div>
                     <div class="col s7">
-                        <h5><i class="fa fa-trash"></i></h5>
+                        <h5><i class="fa fa-trash cartDel" goods_id="{{$v['goods_id']}}"></i></h5>
                     </div>
                 </div>
             </div>
@@ -467,3 +467,20 @@
 
 </body>
 </html>
+<script>
+    $(function(){
+        $('.cartDel').click(function(){
+            var goods_id=$(this).attr('goods_id');
+            $.post(
+                '/cart/cartDel',
+                {goods_id:goods_id},
+                function(data){
+                    alert(data.msg);
+                    if(data.errno==0){
+                        history.go(0);
+                    };
+                },'json'
+            )
+        })
+    })
+</script>

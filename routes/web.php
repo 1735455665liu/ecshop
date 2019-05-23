@@ -18,5 +18,7 @@ Route::get('product-list.html','Goods\GoodsController@goodslists');    //商品�
 
 Route::post('/cart/cartAdd','Cart\CartController@cartAdd');    //添加购物车
 Route::get('/cart/cartList','Cart\CartController@cartList');    //购物车列表
+Route::post('/cart/cartDel','Cart\CartController@cartDel');    //购物车列表
+
 
 

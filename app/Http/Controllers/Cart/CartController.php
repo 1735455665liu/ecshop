@@ -55,6 +55,7 @@ class CartController extends Controller
     //购物车列表
     public function cartList(Request $request){
         $cartInfo = DB::table('shop_cart')
+            ->where('cart_status',1)
             ->leftJoin('shop_goods', 'shop_cart.goods_id', '=', 'shop_goods.goods_id')
             ->get();
         $json=json_encode($cartInfo);
@@ -65,5 +66,23 @@ class CartController extends Controller
         }
 
         return view('cart.cartList',['cartInfo'=>$arr,'amount'=>$amount]);
+    }
+
+    //删除购物车
+    public function cartDel(Request $request){
+        $goods_id=$request->input('goods_id');
+        $res=CartModel::where('goods_id',$goods_id)->update(['cart_status'=>2]);
+        if($res){
+            $response=[
+                'errno'=>0,
+                'msg'=>'删除成功',
+            ];
+        }else{
+            $response=[
+                'errno'=>1,
+                'msg'=>'删除失败',
+            ];
+        }
+        return json_encode($response,JSON_UNESCAPED_UNICODE);
     }
 }
