@@ -14,22 +14,41 @@ class CartController extends Controller
 
         $cartInfo=CartModel::where('goods_id',$goods_id)->first();
 
-        if($cartInfo){      //如果商品已存在购物车
-            $buy_number=$cartInfo->buy_number+1;
-            $res=CartModel::where('goods_id',$goods_id)->update(['buy_number'=>$buy_number]);
-            if($res){
-                $response=[
-                    'errno'=>0,
-                    'msg'=>'添加购物车成功',
+        if($cartInfo){      //商品已存在购物车
+            if($cartInfo->cart_status==1){      //商品在购物车未删除
+                $buy_number=$cartInfo->buy_number+1;
+                $res=CartModel::where('goods_id',$goods_id)->update(['buy_number'=>$buy_number]);
+                if($res){
+                    $response=[
+                        'errno'=>0,
+                        'msg'=>'添加购物车成功',
+                    ];
+                }else{
+                    $response=[
+                        'errno'=>1,
+                        'msg'=>'添加购物车失败',
+                    ];
+                }
+            }else{          //商品已在购物车删除
+                $info=[
+                    'goods_id'=>$goods_id,
+                    'buy_number'=>1,
+                    'create_time'=>time()
                 ];
-            }else{
-                $response=[
-                    'errno'=>1,
-                    'msg'=>'添加购物车失败',
-                ];
+                $res=CartModel::insertGetId($info);
+                if($res){
+                    $response=[
+                        'errno'=>0,
+                        'msg'=>'添加购物车成功',
+                    ];
+                }else{
+                    $response=[
+                        'errno'=>1,
+                        'msg'=>'添加购物车失败',
+                    ];
+                }
             }
-
-        }else{
+        }else{      //商品不存在购物车
             $info=[
                 'goods_id'=>$goods_id,
                 'buy_number'=>1,
