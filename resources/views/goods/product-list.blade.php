@@ -388,7 +388,13 @@
                             ￥{{$v->self_price}} <span>￥{{$v->market_price}}</span>
                         </div>
                         <button class="btn button-default cartAdd" goods_id="{{$v->goods_id}}">点击加入购物车</button>
-                        <button class="btn button-default" id="cart">加入收藏</button>
+                        <button class="btn button-default Coll" goods_id="{{$v->goods_id}}" coll_status ="{{$v->coll_status}}">
+                            @if($v->coll_status==2)
+                                <span>收藏</span>
+                            @else
+                                <span>取消收藏</span>
+                            @endif
+                        </button>
                     </div>
                 </div>
                 @endforeach
@@ -452,5 +458,26 @@
                 },'json'
             )
         })
+    })
+    $('.Coll').click(function(){
+        var _this=$(this);
+        var goods_id = _this.attr('goods_id');
+        var coll_status = _this.attr('coll_status');
+        $.post(
+            '/Coll/colladd',
+            {goods_id:goods_id,coll_status:coll_status},
+            function(data){
+                if(data.msg==0){
+                    _this.find("span").text('取消收藏');
+                    _this.attr('coll_status',2);
+                }else{
+                    _this.find("span").text('收藏');
+                    _this.attr('coll_status',1);
+                }
+                alert(data.msg);
+                history.go(0);
+            },
+            'json'
+        );
     })
 </script>
