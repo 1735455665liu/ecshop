@@ -404,8 +404,8 @@
                     <div class="icon">
                         <i class="fa fa-car"></i>
                     </div>
-                    <h6>Free Shipping</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
+                    <h6>免费送货</h6>
+                    <p>Lorem存有胡萝卜番茄</p>
                 </div>
             </div>
             <div class="col s6">
@@ -413,8 +413,8 @@
                     <div class="icon">
                         <i class="fa fa-dollar"></i>
                     </div>
-                    <h6>Money Back</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
+                    <h6>退款</h6>
+                    <p>Lorem存有胡萝卜番茄</p>
                 </div>
             </div>
         </div>
@@ -424,8 +424,8 @@
                     <div class="icon">
                         <i class="fa fa-lock"></i>
                     </div>
-                    <h6>Secure Payment</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
+                    <h6>安全付款</h6>
+                    <p>Lorem存有胡萝卜番茄</p>
                 </div>
             </div>
             <div class="col s6">
@@ -433,8 +433,8 @@
                     <div class="icon">
                         <i class="fa fa-support"></i>
                     </div>
-                    <h6>24/7 Support</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur</p>
+                    <h6>全天候支持</h6>
+                    <p>Lorem存有胡萝卜番茄</p>
                 </div>
             </div>
         </div>
