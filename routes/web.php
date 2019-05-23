@@ -27,3 +27,20 @@ Route::post('/cart/cartDel','Cart\CartController@cartDel');    //购物车列表
 
 Route::post('/Coll/colladd','Coll\CollController@colladd');    //收藏
 Route::get('/Coll/colllist','Coll\CollController@colllist');    //收藏列表
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-----订单

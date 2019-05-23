@@ -308,7 +308,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn button-default">去结算</button>
+                <button class="btn button-default" id="pay">去结算</button>
             </div>
         </div>
     </div>
@@ -434,6 +434,7 @@
                     };
                 },'json'
             )
-        })
+        });
+        $('')
     })
 </script>
