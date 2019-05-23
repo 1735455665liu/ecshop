@@ -24,4 +24,5 @@ Route::get('/cart/cartList','Cart\CartController@cartList');    //购物车列�
 
 
 Route::post('/Coll/colladd','Coll\CollController@colladd');    //收藏
-Route::get('/Coll/colllist','Coll\CollController@colllist');    //收藏列表
+Route::get('/colllist.html','Coll\CollController@colllist');    //收藏列表
+Route::post('/Coll/colldel','Coll\CollController@colldel');    //列表删除收藏
