@@ -455,54 +455,27 @@
 <div class="section product">
     <div class="container">
         <div class="section-head">
-            <h4>NEW PRODUCT</h4>
+            <h4>最新推荐</h4>
             <div class="divider-top"></div>
             <div class="divider-bottom"></div>
         </div>
         <div class="row">
+            @foreach($goodsInfo as $k=>$v)
             <div class="col s6">
                 <div class="content">
-                    <img src="img/product-new1.png" alt="">
-                    <h6><a href="">Fashion Men's</a></h6>
+                    <img src="/goodsImg/{{$v->goods_img}}" alt="">
+                    <h6><a href="">{{$v->goods_name}}</a></h6>
                     <div class="price">
-                        $20 <span>$28</span>
+                        {{$v->self_price}} <span>{{$v->market_price}}</span>
                     </div>
-                    <button class="btn button-default">ADD TO CART</button>
+                    <button class="btn button-default">点击加入购物车</button>
+                    <button class="btn button-default" id="cart">加入收藏</button>
                 </div>
             </div>
-            <div class="col s6">
-                <div class="content">
-                    <img src="img/product-new2.png" alt="">
-                    <h6><a href="">Fashion Men's</a></h6>
-                    <div class="price">
-                        $20 <span>$28</span>
-                    </div>
-                    <button class="btn button-default">ADD TO CART</button>
-                </div>
-            </div>
+
+                @endforeach
         </div>
-        <div class="row margin-bottom">
-            <div class="col s6">
-                <div class="content">
-                    <img src="img/product-new3.png" alt="">
-                    <h6><a href="">Fashion Men's</a></h6>
-                    <div class="price">
-                        $20 <span>$28</span>
-                    </div>
-                    <button class="btn button-default">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="col s6">
-                <div class="content">
-                    <img src="img/product-new4.png" alt="">
-                    <h6><a href="">Fashion Men's</a></h6>
-                    <div class="price">
-                        $20 <span>$28</span>
-                    </div>
-                    <button class="btn button-default">ADD TO CART</button>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 <!-- end product -->
@@ -523,62 +496,34 @@
 <div class="section product">
     <div class="container">
         <div class="section-head">
-            <h4>TOP PRODUCT</h4>
+            <h4>火爆推荐</h4>
             <div class="divider-top"></div>
             <div class="divider-bottom"></div>
         </div>
         <div class="row">
+            @foreach($goodsInfoHost as $k=>$v)
             <div class="col s6">
                 <div class="content">
-                    <img src="img/product-new1.png" alt="">
-                    <h6><a href="">Fashion Men's</a></h6>
+                    <img src="/goodsImg/{{$v->goods_img}}" alt="">
+                    <h6><a href="">{{$v->goods_name}}</a></h6>
                     <div class="price">
-                        $20 <span>$28</span>
+                        {{$v->self_price}} <span>{{$v->market_price}}</span>
                     </div>
-                    <button class="btn button-default">ADD TO CART</button>
+                    <button class="btn button-default">加入购物车</button>
+                    <button class="btn button-default" id="cart">加入收藏</button>
                 </div>
             </div>
-            <div class="col s6">
-                <div class="content">
-                    <img src="img/product-new2.png" alt="">
-                    <h6><a href="">Fashion Men's</a></h6>
-                    <div class="price">
-                        $20 <span>$28</span>
-                    </div>
-                    <button class="btn button-default">ADD TO CART</button>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s6">
-                <div class="content">
-                    <img src="img/product-new3.png" alt="">
-                    <h6><a href="">Fashion Men's</a></h6>
-                    <div class="price">
-                        $20 <span>$28</span>
-                    </div>
-                    <button class="btn button-default">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="col s6">
-                <div class="content">
-                    <img src="img/product-new4.png" alt="">
-                    <h6><a href="">Fashion Men's</a></h6>
-                    <div class="price">
-                        $20 <span>$28</span>
-                    </div>
-                    <button class="btn button-default">ADD TO CART</button>
-                </div>
-            </div>
+                @endforeach
         </div>
         <div class="pagination-product">
-            <ul>
-                <li class="active">1</li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-                <li><a href="">5</a></li>
-            </ul>
+            {{ $goodsInfoHost->links() }}
+            {{--<ul>--}}
+                {{--<li class="active">1</li>--}}
+                {{--<li><a href="">2</a></li>--}}
+                {{--<li><a href="">3</a></li>--}}
+                {{--<li><a href="">4</a></li>--}}
+                {{--<li><a href="">5</a></li>--}}
+            {{--</ul>--}}
         </div>
     </div>
 </div>
