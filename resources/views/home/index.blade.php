@@ -60,7 +60,7 @@
             <a href="index.html"><i class="fa fa-home"></i></a>
         </div>
         <div class="col s2">
-            <a href="wishlist.html"><i class="fa fa-heart"></i></a>
+            <a href="/colllist.html"><i class="fa fa-heart"></i></a>
         </div>
         <div class="col s4">
             <div class="bar-center">
@@ -461,7 +461,7 @@
         </div>
         <div class="row">
             @foreach($goodsInfo as $k=>$v)
-            <div class="col s6">
+            <div class="col s6" goods_id= "{{$v->goods_id}}">
                 <div class="content">
                     <img src="/goodsImg/{{$v->goods_img}}" alt="">
                     <h6><a href="">{{$v->goods_name}}</a></h6>
@@ -469,7 +469,13 @@
                         {{$v->self_price}} <span>{{$v->market_price}}</span>
                     </div>
                     <button class="btn button-default">点击加入购物车</button>
-                    <button class="btn button-default" id="cart">加入收藏</button>
+                    <button class="btn button-default Coll" goods_id="{{$v->goods_id}}" coll_status ="{{$v->coll_status}}">
+                        @if($v->coll_status==2)
+                            <span>收藏</span>
+                        @else
+                            <span>取消收藏</span>
+                        @endif
+                    </button>
                 </div>
             </div>
 
@@ -502,7 +508,7 @@
         </div>
         <div class="row">
             @foreach($goodsInfoHost as $k=>$v)
-            <div class="col s6">
+            <div class="col s6" >
                 <div class="content">
                     <img src="/goodsImg/{{$v->goods_img}}" alt="">
                     <h6><a href="">{{$v->goods_name}}</a></h6>
@@ -510,7 +516,13 @@
                         {{$v->self_price}} <span>{{$v->market_price}}</span>
                     </div>
                     <button class="btn button-default">加入购物车</button>
-                    <button class="btn button-default" id="cart">加入收藏</button>
+                    <button class="btn button-default Coll" goods_id="{{$v->goods_id}}" coll_status ="{{$v->coll_status}}">
+                        @if($v->coll_status==2)
+                            <span>收藏</span>
+                        @else
+                            <span>取消收藏</span>
+                        @endif
+                    </button>
                 </div>
             </div>
                 @endforeach
@@ -564,3 +576,26 @@
 
 </body>
 </html>
+<script>
+    $('.Coll').click(function(){
+        var _this=$(this);
+        var goods_id = _this.attr('goods_id');
+        var coll_status = _this.attr('coll_status');
+        $.post(
+            '/Coll/colladd',
+            {goods_id:goods_id,coll_status:coll_status},
+            function(data){
+                if(data.msg==0){
+                    _this.find("span").text('取消收藏');
+                    _this.attr('coll_status',2);
+                }else{
+                    _this.find("span").text('收藏');
+                    _this.attr('coll_status',1);
+                }
+                alert(data.msg);
+            },
+            'json'
+        );
+        history.go(0);
+    })
+</script>
