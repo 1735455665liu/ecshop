@@ -12,3 +12,4 @@
 */
 
 Route::get('/','Home\HomeControoler@index');    //首页
+Route::get('product-list.html','Goods\GoodsController@goodslists');    //商品详情
