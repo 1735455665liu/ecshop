@@ -20,23 +20,23 @@ class LoginController extends Controller
         if($res){//账号存在
             if(password_verify($user_pwd,$res['user_pwd'])){//密码正确
                 session(['user_id' => $res['user_id']]);
-                $reponse=[
-                    'errno'=>0,
-                    'msg'=>'ok',
-                ];
+                echo '登陆成功,3秒候跳转至首页';
+                header("refresh:3;url=/");
             }else{//密码错误
                 $reponse=[
                     'errno'=>50002,
                     'msg'=>'账号或密码错误',
                 ];
+                die(json_encode($reponse,JSON_UNESCAPED_UNICODE));
             }
         }else{//账号不存在
             $reponse=[
                 'errno'=>50001,
                 'msg'=>'账号或密码错误',
             ];
+            die(json_encode($reponse,JSON_UNESCAPED_UNICODE));
+
         }
-        die(json_encode($reponse,JSON_UNESCAPED_UNICODE));
      }
 
 }
