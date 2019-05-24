@@ -9,17 +9,17 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="HandheldFriendly" content="True">
 
-    <link rel="stylesheet" href="/css/materialize.css">
-    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/owl.carousel.css">
-    <link rel="stylesheet" href="/css/owl.theme.css">
-    <link rel="stylesheet" href="/css/owl.transitions.css">
-    <link rel="stylesheet" href="/css/fakeLoader.css">
-    <link rel="stylesheet" href="/css/animate.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+    <link rel="stylesheet" href="css/fakeLoader.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
 
-    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="shortcut icon" href="img/favicon.png">
 
 </head>
 <body>
@@ -41,7 +41,7 @@
 <div class="side-nav-panel-right">
     <ul id="slide-out-right" class="side-nav side-nav-panel collapsible">
         <li class="profil">
-            <img src="/img/profile.jpg" alt="">
+            <img src="img/profile.jpg" alt="">
             <h2>John Doe</h2>
         </li>
         <li><a href="setting.html"><i class="fa fa-cog"></i>Settings</a></li>
@@ -176,7 +176,7 @@
                             <div class="icon">
                                 <i class="fa fa-hourglass-half"></i>
                             </div>
-                            404
+                      订单详情
                         </div>
                     </a>
                 </div>
@@ -259,30 +259,29 @@
         <div class="cart-menu">
             <div class="container">
                 <div class="content">
-                    @foreach($cartInfo as $key=>$val)
-                    <div class="cart-1 ">
+                    <div class="cart-1">
                         <div class="row">
                             <div class="col s5">
-                                <img src="/goodsImg/{{$val['goods_img']}}" alt="">
+                                <img src="img/cart-menu1.png" alt="">
                             </div>
                             <div class="col s7">
-                                <h5><a href="">{{$val['goods_name']}}</a></h5>
+                                <h5><a href="">Fashion Men's</a></h5>
                             </div>
                         </div>
                         <div class="row quantity">
                             <div class="col s5">
-                                <h5>购买数量</h5>
+                                <h5>Quantity</h5>
                             </div>
                             <div class="col s7">
-                                <input value="{{$val['buy_number']}}" type="text">
+                                <input value="1" type="text">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s5">
-                                <h5>商品价格</h5>
+                                <h5>Price</h5>
                             </div>
                             <div class="col s7">
-                                <h5>${{$val['self_price']}}</h5>
+                                <h5>$20</h5>
                             </div>
                         </div>
                         <div class="row">
@@ -295,98 +294,88 @@
                         </div>
                     </div>
                     <div class="divider"></div>
-                        @endforeach
-
+                    <div class="cart-2">
+                        <div class="row">
+                            <div class="col s5">
+                                <img src="img/cart-menu2.png" alt="">
+                            </div>
+                            <div class="col s7">
+                                <h5><a href="">Fashion Men's</a></h5>
+                            </div>
+                        </div>
+                        <div class="row quantity">
+                            <div class="col s5">
+                                <h5>Quantity</h5>
+                            </div>
+                            <div class="col s7">
+                                <input value="1" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s5">
+                                <h5>Price</h5>
+                            </div>
+                            <div class="col s7">
+                                <h5>$20</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s5">
+                                <h5>Action</h5>
+                            </div>
+                            <div class="col s7">
+                                <div class="action"><i class="fa fa-trash"></i></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="total">
+                    <div class="row">
+                        <div class="col s7">
+                            <h5>Fashion Men's</h5>
+                        </div>
+                        <div class="col s5">
+                            <h5>$21.00</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s7">
+                            <h5>Fashion Men's</h5>
+                        </div>
+                        <div class="col s5">
+                            <h5>$21.00</h5>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col s7">
                             <h6>Total</h6>
                         </div>
                         <div class="col s5">
-                            <h6>${{$amount}}</h6>
+                            <h6>$41.00</h6>
                         </div>
                     </div>
                 </div>
-                <button class="btn button-default" id="pay">去结算</button>
+                <button class="btn button-default">Process to Checkout</button>
             </div>
         </div>
     </div>
 </div>
 <!-- end cart menu -->
 
-<!-- cart -->
-<div class="cart section">
+<!-- error 404 -->
+<div class="pages section">
     <div class="container">
-        <div class="pages-head">
-            <h3>购物车列表</h3>
-        </div>
-        <div class="content">
-            @foreach($cartInfo as $k=>$v)
-            <div class="cart-1 order" goods_id="{{$v['goods_id']}}">
-                <div class="row">
-                    <div class="col s5">
-                        <h5>商品图片</h5>
-                    </div>
-                    <div class="col s7">
-                        <img src="/goodsImg/{{$v['goods_img']}}" alt="">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s5">
-                        <h5>商品名称</h5>
-                    </div>
-                    <div class="col s7">
-                        <h5><a href="">{{$v['goods_name']}}</a></h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s5">
-                        <h5>购买数量</h5>
-                    </div>
-                    <div class="col s7">
-                        <input value="{{$v['buy_number']}}" type="text">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s5">
-                        <h5>商品价格</h5>
-                    </div>
-                    <div class="col s7">
-                        <h5>${{$v['self_price']}}</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s5">
-                        <h5>删除</h5>
-                    </div>
-                    <div class="col s7">
-                        <h5><i class="fa fa-trash cartDel" goods_id="{{$v['goods_id']}}" ></i></h5>
-                    </div>
-                </div>
-            </div>
-            <div class="divider"></div>
-                @endforeach
+        <div class="error404">
+            <h4>666</h4>
+            <h5>商品详情</h5>
+            订单号： <p>{{$orderInfo->order_no}}</p>
+              商品总金额：  <p>{{$orderInfo->order_amount}}</p>
+
 
         </div>
-        <div class="total">
-
-            <div class="row">
-                <div class="col s7">
-                    <h6>Total</h6>
-                </div>
-                <div class="col s5">
-                    <h6 >${{$amount}}</h6>
-                </div>
-            </div>
-        </div>
-
-
-        <button class="btn button-default payy" >去结算</button>
-
     </div>
 </div>
-<!-- end cart -->
+<!-- end error 404 -->
 
 <!-- loader -->
 <div id="fakeLoader"></div>
@@ -414,55 +403,12 @@
 <!-- end footer -->
 
 <!-- scripts -->
-<script src="/js/jquery.min.js"></script>
-<script src="/js/materialize.min.js"></script>
-<script src="/js/owl.carousel.min.js"></script>
-<script src="/js/fakeLoader.min.js"></script>
-<script src="/js/animatedModal.min.js"></script>
-<script src="/js/main.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/fakeLoader.min.js"></script>
+<script src="js/animatedModal.min.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
-<script>
-    $(function(){
-        $('.cartDel').click(function(){
-            var goods_id=$(this).attr('goods_id');
-            $.post(
-                '/cart/cartDel',
-                {goods_id:goods_id},
-                function(data){
-                    alert(data.msg);
-                    if(data.errno==0){
-                        history.go(0);
-                    };
-                },'json'
-            )
-        });
-
-    //点击去结算
-        $(".payy").click(function(){
-
-            var order=$('.order');
-            var goods_id='';
-           order.each(function () {
-               goods_id+=$(this).attr('goods_id')+',';
-           })
-            goods_id=goods_id.substr(0,goods_id.length-1);
-           $.ajax({
-               method: "post",
-               url:"http://vm.app.api.com/order",
-               data:{goods_id:goods_id},
-               dataType:'json',
-               success:function(data){
-                    if(data.error==1){
-//                        alert(data.order_id);
-                        location.href='/orderList?order_id='+data.order_id;
-                    }else{
-//                        alert(data.msg);
-                    }
-               }
-           })
-        })
-
-    })
-</script>
