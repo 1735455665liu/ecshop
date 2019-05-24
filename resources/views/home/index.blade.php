@@ -259,29 +259,30 @@
         <div class="cart-menu">
             <div class="container">
                 <div class="content">
+                    @foreach($cart_arr as $k=>$v)
                     <div class="cart-1">
                         <div class="row">
                             <div class="col s5">
-                                <img src="img/cart-menu1.png" alt="">
+                                <img src="/goodsImg/{{$v['goods_img']}}" alt="">
                             </div>
                             <div class="col s7">
-                                <h5><a href="">Fashion Men's</a></h5>
+                                <h5><a href="">{{$v['goods_name']}}</a></h5>
                             </div>
                         </div>
                         <div class="row quantity">
                             <div class="col s5">
-                                <h5>Quantity</h5>
+                                <h5>购买数量</h5>
                             </div>
                             <div class="col s7">
-                                <input value="1" type="text">
+                                <input value="{{$v['buy_number']}}" type="text">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s5">
-                                <h5>Price</h5>
+                                <h5>商品价格</h5>
                             </div>
                             <div class="col s7">
-                                <h5>$20</h5>
+                                <h5>${{$v['self_price']}}</h5>
                             </div>
                         </div>
                         <div class="row">
@@ -294,64 +295,16 @@
                         </div>
                     </div>
                     <div class="divider"></div>
-                    <div class="cart-2">
-                        <div class="row">
-                            <div class="col s5">
-                                <img src="img/cart-menu2.png" alt="">
-                            </div>
-                            <div class="col s7">
-                                <h5><a href="">Fashion Men's</a></h5>
-                            </div>
-                        </div>
-                        <div class="row quantity">
-                            <div class="col s5">
-                                <h5>Quantity</h5>
-                            </div>
-                            <div class="col s7">
-                                <input value="1" type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s5">
-                                <h5>Price</h5>
-                            </div>
-                            <div class="col s7">
-                                <h5>$20</h5>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s5">
-                                <h5>Action</h5>
-                            </div>
-                            <div class="col s7">
-                                <div class="action"><i class="fa fa-trash"></i></div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="total">
-                    <div class="row">
-                        <div class="col s7">
-                            <h5>Fashion Men's</h5>
-                        </div>
-                        <div class="col s5">
-                            <h5>$21.00</h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s7">
-                            <h5>Fashion Men's</h5>
-                        </div>
-                        <div class="col s5">
-                            <h5>$21.00</h5>
-                        </div>
-                    </div>
+
                     <div class="row">
                         <div class="col s7">
                             <h6>Total</h6>
                         </div>
                         <div class="col s5">
-                            <h6>$41.00</h6>
+                            <h6>${{$allamount}}</h6>
                         </div>
                     </div>
                 </div>

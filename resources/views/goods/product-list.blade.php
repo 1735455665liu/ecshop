@@ -57,10 +57,10 @@
 <div class="navbar-bottom">
     <div class="row">
         <div class="col s2">
-            <a href="index.html"><i class="fa fa-home"></i></a>
+            <a href="/"><i class="fa fa-home"></i></a>
         </div>
         <div class="col s2">
-            <a href="wishlist.html"><i class="fa fa-heart"></i></a>
+            <a href="/colllist.html"><i class="fa fa-heart"></i></a>
         </div>
         <div class="col s4">
             <div class="bar-center">
@@ -87,7 +87,7 @@
         <div class="container">
             <div class="row">
                 <div class="col s4">
-                    <a href="index.html" class="button-link">
+                    <a href="/" class="button-link">
                         <div class="menu-link">
                             <div class="icon">
                                 <i class="fa fa-home"></i>
@@ -119,7 +119,7 @@
             </div>
             <div class="row">
                 <div class="col s4">
-                    <a href="wishlist.html" class="button-link">
+                    <a href="/colllist.html" class="button-link">
                         <div class="menu-link">
                             <div class="icon">
                                 <i class="fa fa-heart"></i>
@@ -129,7 +129,7 @@
                     </a>
                 </div>
                 <div class="col s4">
-                    <a href="cart.html" class="button-link">
+                    <a href="/cart.html" class="button-link">
                         <div class="menu-link">
                             <div class="icon">
                                 <i class="fa fa-shopping-cart"></i>
