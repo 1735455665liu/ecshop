@@ -24,5 +24,10 @@ class VerifyCsrfToken extends Middleware
         'logindo',
         '/cart/*',
         '/Coll/*',
+<<<<<<< HEAD
+=======
+        '/pay/*'
+
+>>>>>>> pay
     ];
 }

@@ -308,7 +308,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn button-default">去结算</button>
+                <button class="btn button-default" id="pay">去结算</button>
             </div>
         </div>
     </div>
@@ -376,11 +376,11 @@
                     <h6>Total</h6>
                 </div>
                 <div class="col s5">
-                    <h6>${{$amount}}</h6>
+                    <h6 >${{$amount}}</h6>
                 </div>
             </div>
         </div>
-        <button class="btn button-default">去结算</button>
+        <button class="btn button-default"><a href="/pay/payadd?amount={{$amount}}">去结算</a></button>
     </div>
 </div>
 <!-- end cart -->
@@ -434,6 +434,7 @@
                     };
                 },'json'
             )
-        })
+        });
+
     })
 </script>
