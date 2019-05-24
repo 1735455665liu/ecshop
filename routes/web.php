@@ -31,11 +31,11 @@ Route::post('/cart/cartDel','Cart\CartController@cartDel');    //购物车列表
 
 
 Route::post('/Coll/colladd','Coll\CollController@colladd');    //收藏
-<<<<<<< HEAD
+
 Route::get('/colllist.html','Coll\CollController@colllist');    //收藏列表
 Route::post('/Coll/colldel','Coll\CollController@colldel');    //列表删除收藏
 
-=======
+
 Route::get('/Coll/colllist','Coll\CollController@colllist');    //收藏列表
 
 
@@ -49,4 +49,4 @@ Route::get('/pay/payadd','Pay\PayController@pay');    //支付
 Route::get('/test','Pay\PayController@test');    //支付
 Route::get('/Alireturn','Pay\PayController@Alireturn');    //同步通知
 Route::post('/test','Pay\PayController@test');    //异步通知
->>>>>>> pay
+
