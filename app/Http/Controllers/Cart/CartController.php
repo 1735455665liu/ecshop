@@ -89,8 +89,12 @@ class CartController extends Controller
             header('Refresh:2;url=/login.html');
             echo "请先登录";die;
         }
+        $where=[
+          'cart_status'=>1,
+          'user_id'=>$uid
+        ];
         $cartInfo = DB::table('shop_cart')
-            ->where('cart_status',1)
+            ->where($where)
             ->leftJoin('shop_goods', 'shop_cart.goods_id', '=', 'shop_goods.goods_id')
             ->get();
         $json=json_encode($cartInfo);
