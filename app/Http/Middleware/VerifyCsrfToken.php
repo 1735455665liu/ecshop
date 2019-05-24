@@ -19,9 +19,10 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        'regdo',
+        'CheckUserName',
+        'logindo',
         '/cart/*',
         '/Coll/*',
-
     ];
 }
