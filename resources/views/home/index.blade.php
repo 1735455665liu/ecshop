@@ -49,6 +49,7 @@
         <li><a href="contact.html"><i class="fa fa-envelope-o"></i>Contact Us</a></li>
         <li><a href="login.html"><i class="fa fa-sign-in"></i>Login</a></li>
         <li><a href="register.html"><i class="fa fa-user-plus"></i>Register</a></li>
+        <li><a href="/loginout"><i class="fa fa-sign-in"></i>loginout</a></li>
     </ul>
 </div>
 <!-- end side nav right-->
@@ -427,7 +428,9 @@
                     </div>
                     <button class="btn button-default">点击加入购物车</button>
                     <button class="btn button-default Coll" goods_id="{{$v->goods_id}}" coll_status ="{{$v->coll_status}}">
-                        @if($v->coll_status==2)
+                        @if(session('user_id')==NULL)
+                            <span>收藏</span>
+                        @elseif($v->coll_status==2)
                             <span>收藏</span>
                         @else
                             <span>取消收藏</span>
@@ -474,7 +477,9 @@
                     </div>
                     <button class="btn button-default">加入购物车</button>
                     <button class="btn button-default Coll" goods_id="{{$v->goods_id}}" coll_status ="{{$v->coll_status}}">
-                        @if($v->coll_status==2)
+                        @if(session('user_id')==NULL)
+                            <span>收藏</span>
+                        @elseif($v->coll_status==2)
                             <span>收藏</span>
                         @else
                             <span>取消收藏</span>
@@ -542,15 +547,18 @@
             '/Coll/colladd',
             {goods_id:goods_id,coll_status:coll_status},
             function(data){
-                if(data.msg==0){
+                alert(data.msg);
+                if(data.error ==0){
+                    location.href="/login.html";
+                }else if(data.error==1){
                     _this.find("span").text('取消收藏');
                     _this.attr('coll_status',2);
+                    history.go(0);
                 }else{
                     _this.find("span").text('收藏');
                     _this.attr('coll_status',1);
+                    history.go(0);
                 }
-                alert(data.msg);
-                history.go(0);
             },
             'json'
         );
