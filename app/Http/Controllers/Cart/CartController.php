@@ -15,7 +15,8 @@ class CartController extends Controller
         $cartInfo=CartModel::where('goods_id',$goods_id)->first();
 
         if($cartInfo){      //商品已存在购物车
-            if($cartInfo->cart_status==1){      //商品在购物车未删除
+            $res=CartModel::where('cart_status',1)->first();
+            if($res){      //商品在购物车未删除
                 $buy_number=$cartInfo->buy_number+1;
                 $res=CartModel::where('goods_id',$goods_id)->update(['buy_number'=>$buy_number]);
                 if($res){
