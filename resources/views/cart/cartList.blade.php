@@ -450,7 +450,7 @@
             goods_id=goods_id.substr(0,goods_id.length-1);
            $.ajax({
                method: "post",
-               url:"http://vm.app.api.com/order",
+               url:"/order",
                data:{goods_id:goods_id},
                dataType:'json',
                success:function(data){
