@@ -391,7 +391,7 @@
                         <button class="btn button-default Coll" goods_id="{{$v->goods_id}}" coll_status ="{{$v->coll_status}}">
                             @if(session('user_id')==NULL)
                                 <span>收藏</span>
-                            @else@if($v->coll_status==2)
+                            @elseif($v->coll_status==2)
                                 <span>收藏</span>
                             @else
                                 <span>取消收藏</span>
