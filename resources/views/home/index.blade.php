@@ -542,15 +542,18 @@
             '/Coll/colladd',
             {goods_id:goods_id,coll_status:coll_status},
             function(data){
-                if(data.msg==0){
+                alert(data.msg);
+                if(dataa.msg ==0){
+                    location.href="/login.html";
+                }else if(data.msg==1){
                     _this.find("span").text('取消收藏');
                     _this.attr('coll_status',2);
+                    history.go(0);
                 }else{
                     _this.find("span").text('收藏');
                     _this.attr('coll_status',1);
+                    history.go(0);
                 }
-                alert(data.msg);
-                history.go(0);
             },
             'json'
         );

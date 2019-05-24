@@ -9,6 +9,14 @@ class CollController extends Controller
 {
     //收藏
     public function colladd(Request $request){
+        $user_id =session('user_name');
+        if($user_id ==NUll){
+            $response = [
+                'error'=>0,
+                'msg'=>'未登录，去登陆'
+            ];
+            die(json_encode($response,JSON_UNESCAPED_UNICODE));
+        }
         $data = $request->input();
         $res = DB::table('shop_goods')->where(['goods_id'=>$data['goods_id']])->first();
         if($res->coll_status==1){
@@ -21,7 +29,7 @@ class CollController extends Controller
         }else{
             DB::table('shop_goods')->where(['goods_id'=>$data['goods_id'],'coll_status'=>$res->coll_status])->update(['coll_status'=>1]);
             $response = [
-                'error'=>10000,
+                'error'=>2,
                 'msg'=>'收藏成功'
             ];
             die(json_encode($response,JSON_UNESCAPED_UNICODE));
