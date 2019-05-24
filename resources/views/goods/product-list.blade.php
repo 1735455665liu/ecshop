@@ -454,6 +454,8 @@
                     alert(data.msg);
                     if(data.errno==0){
                         location.href='/cart.html';
+                    }else if(data.errno==2){
+                        location.href='/login.html';
                     }
                 },'json'
             )

@@ -10,6 +10,14 @@ class CartController extends Controller
 {
     //添加购物车
     public function cartAdd(Request $request){
+        $uid=session('user_id');
+        if(!$uid){
+            $response=[
+                'errno'=>2,
+                'msg'=>'请先登录',
+            ];
+            die(json_encode($response,JSON_UNESCAPED_UNICODE));
+        }
         $goods_id=$request->input('goods_id');
 
         $cartInfo=CartModel::where('goods_id',$goods_id)->first();
@@ -34,7 +42,8 @@ class CartController extends Controller
                 $info=[
                     'goods_id'=>$goods_id,
                     'buy_number'=>1,
-                    'create_time'=>time()
+                    'create_time'=>time(),
+                    'user_id'=>$uid
                 ];
                 $res=CartModel::insertGetId($info);
                 if($res){
@@ -53,7 +62,8 @@ class CartController extends Controller
             $info=[
                 'goods_id'=>$goods_id,
                 'buy_number'=>1,
-                'create_time'=>time()
+                'create_time'=>time(),
+                'user_id'=>$uid
             ];
             $res=CartModel::insertGetId($info);
             if($res){
@@ -74,6 +84,11 @@ class CartController extends Controller
 
     //购物车列表
     public function cartList(Request $request){
+        $uid=session('user_id');
+        if(!$uid){
+            header('Refresh:2;url=/login.html');
+            echo "请先登录";die;
+        }
         $cartInfo = DB::table('shop_cart')
             ->where('cart_status',1)
             ->leftJoin('shop_goods', 'shop_cart.goods_id', '=', 'shop_goods.goods_id')
