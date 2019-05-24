@@ -46,7 +46,7 @@ Route::get('/Coll/colllist','Coll\CollController@colllist');    //收藏列表
 
 //支付
 Route::get('/pay/payadd','Pay\PayController@pay');    //支付
-Route::get('/test','Pay\PayController@test');    //支付
+Route::get('/test','Pay\PayController@test');    //测试
 Route::get('/Alireturn','Pay\PayController@Alireturn');    //同步通知
-Route::post('/test','Pay\PayController@test');    //异步通知
+Route::post('/notify','Pay\PayController@notify');    //异步通知
 
