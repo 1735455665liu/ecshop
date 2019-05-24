@@ -453,7 +453,7 @@
                 function(data){
                     alert(data.msg);
                     if(data.errno==0){
-                        location.href='/cart/cartList';
+                        location.href='/cart.html';
                     }
                 },'json'
             )
