@@ -543,9 +543,9 @@
             {goods_id:goods_id,coll_status:coll_status},
             function(data){
                 alert(data.msg);
-                if(dataa.msg ==0){
+                if(data.error ==0){
                     location.href="/login.html";
-                }else if(data.msg==1){
+                }else if(data.error==1){
                     _this.find("span").text('取消收藏');
                     _this.attr('coll_status',2);
                     history.go(0);

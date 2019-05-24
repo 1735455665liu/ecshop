@@ -21,6 +21,7 @@ class CollController extends Controller
         $res = DB::table('shop_goods')->where(['goods_id'=>$data['goods_id']])->first();
         if($res->coll_status==1){
             DB::table('shop_goods')->where(['goods_id'=>$data['goods_id'],'coll_status'=>$res->coll_status])->update(['coll_status'=>2]);
+            DB::table('shop_coll')->where(['goods_id'=>$data['goods_id'],'coll_status'=>$res->coll_status])->update(['coll_status'=>2]);
             $response = [
               'error'=>1,
               'msg'=>'取消收藏成功'
@@ -28,6 +29,13 @@ class CollController extends Controller
             die(json_encode($response,JSON_UNESCAPED_UNICODE));
         }else{
             DB::table('shop_goods')->where(['goods_id'=>$data['goods_id'],'coll_status'=>$res->coll_status])->update(['coll_status'=>1]);
+            $info = [
+                'goods_id'=>$res->goods_id,
+                'user_id'=>session('user_id'),
+                'coll_status'=>1,
+                'create_time'=>time()
+            ];
+            DB::table('shop_coll')->insertGetId($info);
             $response = [
                 'error'=>2,
                 'msg'=>'收藏成功'
