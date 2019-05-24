@@ -49,6 +49,7 @@
         <li><a href="contact.html"><i class="fa fa-envelope-o"></i>Contact Us</a></li>
         <li><a href="login.html"><i class="fa fa-sign-in"></i>Login</a></li>
         <li><a href="register.html"><i class="fa fa-user-plus"></i>Register</a></li>
+        <li><a href="/loginout"><i class="fa fa-sign-in"></i>loginout</a></li>
     </ul>
 </div>
 <!-- end side nav right-->

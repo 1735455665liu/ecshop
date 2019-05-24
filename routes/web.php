@@ -14,6 +14,7 @@
 Route::get('/','Home\HomeControoler@index');    //首页
 Route::get('product-list.html','Goods\GoodsController@goodslists');    //商品详情
 Route::get('register.html','Reg\RegController@reg');  //注册
-Route::post('/regdo','Reg\RegController@regdo');  //用户名唯一性验证
+Route::post('/regdo','Reg\RegController@regdo');  //注册执行
 Route::get('login.html','Login\LoginController@login');  //登录
-Route::post('/logindo','Login\LoginController@logindo');  //登录
+Route::post('/logindo','Login\LoginController@logindo');  //登录执行
+Route::get('/loginout','Login\LoginController@loginout');

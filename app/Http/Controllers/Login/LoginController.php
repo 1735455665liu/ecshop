@@ -14,7 +14,9 @@ class LoginController extends Controller
     public function logindo(Request $request){
         $user_name=$request->input('user_name');
         $user_pwd=$request->input('user_pwd');
-        $res=UserInfo::where(['user_name'=>$user_name])->first()->toArray();
+        $response=UserInfo::where(['user_name'=>$user_name])->first();
+        $arr=json_encode($response);
+        $res=json_decode($arr,true);
         if($res){//账号存在
             if(password_verify($user_pwd,$res['user_pwd'])){//密码正确
                 session(['user_id' => $res['user_id'],'user_name'=>$res['user_name']]);
@@ -36,5 +38,15 @@ class LoginController extends Controller
 
         }
      }
-
+     /*退出*/
+    public function loginout(Request $request){
+        if(session('user_id')==NULL){
+            echo '你并没有登录呦！那就三秒钟后跳回登录页面';
+            header("refresh:3;url=/login.html");
+        }else{
+            echo '退出成功！';
+            $request->session()->forget('user_id');
+            header("refresh:3;url=/");
+        }
+    }
 }
