@@ -455,10 +455,10 @@
                dataType:'json',
                success:function(data){
                     if(data.error==1){
-//                        alert(data.order_id);
-                        location.href='/orderList?order_id='+data.order_id;
+                       alert(data.order_id);
+                        location.href='http://ecshop.1809a.com/orderList?order_id='+data.order_id;
                     }else{
-//                        alert(data.msg);
+                       alert(data.msg);
                     }
                }
            })
