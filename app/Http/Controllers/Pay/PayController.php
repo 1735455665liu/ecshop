@@ -157,13 +157,13 @@ class PayController extends Controller
 
 
         $conten=file_get_contents('php://input');
-        $xml = simplexml_load_string($conten);
+
+        $json=json_decode($conten,true);
         $where=[
           'status'=>2
         ];
-        $orderInfo=DB::table('shop_order')->where(['order_no'=>$xml->out_trade_no])->update($where);
+        $orderInfo=DB::table('shop_order')->where(['order_no'=>$json['out_trade_no']])->update($where);
 
-        
         echo 'success';
 
 

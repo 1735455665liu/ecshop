@@ -77,11 +77,15 @@ class OrderController extends Controller
           'order_id'=>$order_id,
         ];
         $OrderInfo=DB::table('shop_order')->where($where)->first();
-        $data=[
-          'orderInfo'=>$OrderInfo
-        ];
+        if(empty($OrderInfo)){
+            die('禁止非法操作');
+        }else{
+            $data=[
+                'orderInfo'=>$OrderInfo
+            ];
+            return view('order.orderlist',$data);
+        }
 
-        return view('order.orderlist',$data);
     }
 
 }
