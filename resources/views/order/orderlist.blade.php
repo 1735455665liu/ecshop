@@ -87,7 +87,7 @@
         <div class="container">
             <div class="row">
                 <div class="col s4">
-                    <a href="index.html" class="button-link">
+                    <a href="/" class="button-link">
                         <div class="menu-link">
                             <div class="icon">
                                 <i class="fa fa-home"></i>
@@ -107,19 +107,7 @@
                     </a>
                 </div>
                 <div class="col s4">
-                    <a href="shop-single.html" class="button-link">
-                        <div class="menu-link">
-                            <div class="icon">
-                                <i class="fa fa-eye"></i>
-                            </div>
-                            Single Shop
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s4">
-                    <a href="wishlist.html" class="button-link">
+                    <a href="/colllist.html" class="button-link">
                         <div class="menu-link">
                             <div class="icon">
                                 <i class="fa fa-heart"></i>
@@ -138,113 +126,9 @@
                         </div>
                     </a>
                 </div>
-                <div class="col s4">
-                    <a href="checkout.html" class="button-link">
-                        <div class="menu-link">
-                            <div class="icon">
-                                <i class="fa fa-credit-card"></i>
-                            </div>
-                            Checkout
-                        </div>
-                    </a>
-                </div>
             </div>
-            <div class="row">
-                <div class="col s4">
-                    <a href="blog.html" class="button-link">
-                        <div class="menu-link">
-                            <div class="icon">
-                                <i class="fa fa-bold"></i>
-                            </div>
-                            Blog
-                        </div>
-                    </a>
-                </div>
-                <div class="col s4">
-                    <a href="blog-single.html" class="button-link">
-                        <div class="menu-link">
-                            <div class="icon">
-                                <i class="fa fa-file-text-o"></i>
-                            </div>
-                            Blog Single
-                        </div>
-                    </a>
-                </div>
-                <div class="col s4">
-                    <a href="error404.html" class="button-link">
-                        <div class="menu-link">
-                            <div class="icon">
-                                <i class="fa fa-hourglass-half"></i>
-                            </div>
-                      订单详情
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s4">
-                    <a href="testimonial.html" class="button-link">
-                        <div class="menu-link">
-                            <div class="icon">
-                                <i class="fa fa-support"></i>
-                            </div>
-                            Testimonial
-                        </div>
-                    </a>
-                </div>
-                <div class="col s4">
-                    <a href="about-us.html" class="button-link">
-                        <div class="menu-link">
-                            <div class="icon">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            About Us
-                        </div>
-                    </a>
-                </div>
-                <div class="col s4">
-                    <a href="contact.html" class="button-link">
-                        <div class="menu-link">
-                            <div class="icon">
-                                <i class="fa fa-envelope-o"></i>
-                            </div>
-                            Contact
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s4">
-                    <a href="setting.html" class="button-link">
-                        <div class="menu-link">
-                            <div class="icon">
-                                <i class="fa fa-cog"></i>
-                            </div>
-                            Settings
-                        </div>
-                    </a>
-                </div>
-                <div class="col s4">
-                    <a href="login.html" class="button-link">
-                        <div class="menu-link">
-                            <div class="icon">
-                                <i class="fa fa-sign-in"></i>
-                            </div>
-                            Login
-                        </div>
-                    </a>
-                </div>
-                <div class="col s4">
-                    <a href="register.html" class="button-link">
-                        <div class="menu-link">
-                            <div class="icon">
-                                <i class="fa fa-user-plus"></i>
-                            </div>
-                            Register
-                        </div>
-                    </a>
-                </div>
-            </div>
+
+
         </div>
     </div>
 </div>
@@ -366,12 +250,17 @@
 <div class="pages section">
     <div class="container">
         <div class="error404">
-            <h4>666</h4>
-            <h5>商品详情</h5>
-            订单号： <p>{{$orderInfo->order_no}}</p>
-              商品总金额：  <p>{{$orderInfo->order_amount}}</p>
-            <button class="btn button-default" >支付宝支付</button>
-            <button class="btn button-default" >微信支付</button>
+            @if($orderInfo->status==2)
+                <h4>烨</h4>
+                <h5>暂无订单</h5>
+                @else
+                <h4>666</h4>
+                <h5>商品详情</h5>
+                订单号： <p>{{$orderInfo->order_no}}</p>
+                商品总金额：  <p>{{$orderInfo->order_amount}}</p>
+                <button class="btn button-default" ><a href="/pay/payadd?order_id={{$orderInfo->order_id}}" style="color: #0b0b0b">支付宝支付</a></button>
+                <button class="btn button-default" ><a href="/wx/test?order_id={{$orderInfo->order_id}} " style="color: #0b0b0b">微信支付</a></button>
+                @endif
         </div>
     </div>
 </div>

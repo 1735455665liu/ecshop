@@ -9,15 +9,15 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="HandheldFriendly" content="True">
 
-    <link rel="stylesheet" href="css/materialize.css">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/owl.theme.css">
-    <link rel="stylesheet" href="css/owl.transitions.css">
-    <link rel="stylesheet" href="css/fakeLoader.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/materialize.css">
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/owl.theme.css">
+    <link rel="stylesheet" href="/css/owl.transitions.css">
+    <link rel="stylesheet" href="/css/fakeLoader.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <link rel="shortcut icon" href="img/favicon.png">
 
@@ -57,10 +57,10 @@
 <div class="navbar-bottom">
     <div class="row">
         <div class="col s2">
-            <a href="/"><i class="fa fa-home"></i></a>
+            <a href="index.html"><i class="fa fa-home"></i></a>
         </div>
         <div class="col s2">
-            <a href="/colllist.html"><i class="fa fa-heart"></i></a>
+            <a href="wishlist.html"><i class="fa fa-heart"></i></a>
         </div>
         <div class="col s4">
             <div class="bar-center">
@@ -69,7 +69,7 @@
             </div>
         </div>
         <div class="col s2">
-            <a href="/contact.html"><i class="fa fa-envelope-o"></i></a>
+            <a href="contact.html"><i class="fa fa-envelope-o"></i></a>
         </div>
         <div class="col s2">
             <a href="#animatedModal2" id="nav-menu"><i class="fa fa-bars"></i></a>
@@ -246,62 +246,20 @@
 </div>
 <!-- end cart menu -->
 
-<!-- wishlist -->
-<div class="wishlist section">
+
+<!-- about us -->
+<div class="pages section">
     <div class="container">
         <div class="pages-head">
-            <h3>收藏列表</h3>
+            <h3>微信支付</h3>
         </div>
-        <div class="content">
-            @foreach($res as $k=>$v)
-                <div class="cart-1">
-                    <div class="row">
-                        <div class="col s5">
-                            <h5>Image</h5>
-                        </div>
-                        <div class="col s7">
-                            <img src="/goodsImg/{{$v->goods_img}}" alt="">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s5">
-                            <h5>Name</h5>
-                        </div>
-                        <div class="col s7">
-                            <h5><a href="">{{$v->goods_name}}</a></h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s5">
-                            <h5>Stock Status</h5>
-                        </div>
-                        <div class="col s7">
-                            <h5>{{$v->goods_num}}</h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s5">
-                            <h5>Price</h5>
-                        </div>
-                        <div class="col s7">
-                            <h5>${{$v->self_price}}</h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s5">
-                            <h5>Action</h5>
-                        </div>
-                        <div class="col s7">
-                            <h5><i class="fa fa-trash del" goods_id ="{{$v->goods_id}}"></i></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="divider"></div>
-            @endforeach
+        <div class="about-us" id="qrcode">
+
         </div>
     </div>
 </div>
-<!-- end wishlist -->
+<!-- end about us -->
+
 
 <!-- loader -->
 <div id="fakeLoader"></div>
@@ -311,8 +269,8 @@
 <div class="footer">
     <div class="container">
         <div class="about-us-foot">
-            <h6>Mstore</h6>
-            <p>is a lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing elit.</p>
+            <h6>烨氏集团</h6>
+            <p>烨氏集团成立于1984年,1988年进入国际行业,经过三十余年的发展,成为国内领先的集团之一</p>
         </div>
         <div class="social-media">
             <a href=""><i class="fa fa-facebook"></i></a>
@@ -322,33 +280,22 @@
             <a href=""><i class="fa fa-instagram"></i></a>
         </div>
         <div class="copyright">
-            <span>© 2017 All Right Reserved</span>
+            <span>© 2019 版权所有 烨氏集团</span>
         </div>
     </div>
 </div>
 <!-- end footer -->
 
 <!-- scripts -->
-<script src="js/jquery.min.js"></script>
-<script src="js/materialize.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/fakeLoader.min.js"></script>
-<script src="js/animatedModal.min.js"></script>
-<script src="js/main.js"></script>
-<script>
-    $('.del').click(function(){
-        var _this=$(this);
-        var goods_id = _this.attr('goods_id');
-        $.post(
-            '/Coll/colldel',
-            {goods_id:goods_id},
-            function(data){
-               alert(data.msg);
-                history.go(0);
-            },
-            'json'
-    );
-    })
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/fakeLoader.min.js"></script>
+<script src="/js/animatedModal.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/weixin/qrcode.js"></script>
+<script type="text/javascript">
+    new QRCode(document.getElementById("qrcode"), "{{$code_url}}");
 </script>
 </body>
 </html>

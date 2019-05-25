@@ -22,7 +22,6 @@ Route::get('/loginout','Login\LoginController@loginout');
 
 
 
-
 Route::post('/cart/cartAdd','Cart\CartController@cartAdd');    //添加购物车
 Route::get('/cart.html','Cart\CartController@cartList');    //购物车列表
 Route::post('/cart/cartDel','Cart\CartController@cartDel');    //购物车删除
@@ -49,8 +48,12 @@ Route::get('orderList','Order\OrderController@orderList');
 
 
 //支付
-//Route::get('/pay/payadd','Pay\PayController@pay');    //支付
-//Route::get('/test','Pay\PayController@test');    //测试
-//Route::get('/Alireturn','Pay\PayController@Alireturn');    //同步通知
-//Route::post('/notify','Pay\PayController@notify');    //异步通知
+Route::get('/pay/payadd','Pay\PayController@pay');    //支付
+Route::get('/test','Pay\PayController@test');    //测试
+Route::get('/Alireturn','Pay\PayController@Alireturn');    //同步通知
+Route::post('/notify','Pay\PayController@notify');    //异步通知
 
+
+
+//微信支付
+Route::get('wx/test','Wx\WxPayController@t_test');  //扫码支付
