@@ -260,7 +260,7 @@
             <div class="container">
                 <div class="content">
                     @foreach($cartInfo as $key=>$val)
-                    <div class="cart-1">
+                    <div class="cart-1 ">
                         <div class="row">
                             <div class="col s5">
                                 <img src="/goodsImg/{{$val['goods_img']}}" alt="">
@@ -323,7 +323,7 @@
         </div>
         <div class="content">
             @foreach($cartInfo as $k=>$v)
-            <div class="cart-1">
+            <div class="cart-1 order" goods_id="{{$v['goods_id']}}">
                 <div class="row">
                     <div class="col s5">
                         <h5>商品图片</h5>
@@ -361,7 +361,7 @@
                         <h5>删除</h5>
                     </div>
                     <div class="col s7">
-                        <h5><i class="fa fa-trash cartDel" goods_id="{{$v['goods_id']}}"></i></h5>
+                        <h5><i class="fa fa-trash cartDel" goods_id="{{$v['goods_id']}}" ></i></h5>
                     </div>
                 </div>
             </div>
@@ -380,7 +380,10 @@
                 </div>
             </div>
         </div>
-        <button class="btn button-default"><a href="/pay/payadd?amount={{$amount}}" style="color: #0b0b0b">去结算</a></button>
+
+
+        <button class="btn button-default payy" >去结算</button>
+
     </div>
 </div>
 <!-- end cart -->
@@ -435,6 +438,32 @@
                 },'json'
             )
         });
+
+    //点击去结算
+        $(".payy").click(function(){
+
+            var order=$('.order');
+            var goods_id='';
+           order.each(function () {
+               goods_id+=$(this).attr('goods_id')+',';
+           })
+            goods_id=goods_id.substr(0,goods_id.length-1);
+           $.ajax({
+               method: "post",
+               url:"/order",
+               data:{goods_id:goods_id},
+               dataType:'json',
+               success:function(data){
+
+                    if(data.errno==1){
+                        alert(data.msg);
+                        location.href="/orderList?order_id="+data.order_id;
+                    }else{
+                        alert(data.msg);
+                    }
+               }
+           })
+        })
 
     })
 </script>
