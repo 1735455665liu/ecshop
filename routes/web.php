@@ -44,7 +44,7 @@ Route::get('/Coll/colllist','Coll\CollController@colllist');    //收藏列表
 //去结算
 Route::post('/order','Order\OrderController@order');
 //生成订单列表
-Route::get('orderList','Order\OrderController@orderList');
+Route::get('contact.html','Order\OrderController@orderList');
 
 
 //支付

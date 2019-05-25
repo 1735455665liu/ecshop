@@ -74,16 +74,18 @@ class OrderController extends Controller
         $order_id=$request->input("order_id");
 //        var_dump()
         $where=[
-          'order_id'=>$order_id,
+          'user_id'=>session('user_id')
         ];
+
         $OrderInfo=DB::table('shop_order')->where($where)->first();
         if(empty($OrderInfo)){
-            die('禁止非法操作');
+            echo '禁止非法操作,请先登录';
+            header("refresh:3;url='/login.html'");
         }else{
             $data=[
                 'orderInfo'=>$OrderInfo
             ];
-            return view('order.orderlist',$data);
+            return view('order.contact',$data);
         }
 
     }
