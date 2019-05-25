@@ -260,6 +260,9 @@
         <div class="cart-menu">
             <div class="container">
                 <div class="content">
+                    @if(session('user_id')==null)
+                        <h3>登录后查看</h3>
+                    @else
                     @foreach($cart_arr as $k=>$v)
                     <div class="cart-1">
                         <div class="row">
@@ -297,6 +300,7 @@
                     </div>
                     <div class="divider"></div>
                     @endforeach
+                        @endif
                 </div>
                 <div class="total">
 
@@ -426,7 +430,7 @@
                     <div class="price">
                         ￥{{$v->self_price}} <span>￥{{$v->market_price}}</span>
                     </div>
-                    <button class="btn button-default">点击加入购物车</button>
+                    <button class="btn button-default cartAdd" goods_id="{{$v->goods_id}}">加入购物车</button>
                     <button class="btn button-default Coll" goods_id="{{$v->goods_id}}" coll_status ="{{$v->coll_status}}">
                         @if(session('user_id')==NULL)
                             <span>收藏</span>
@@ -475,7 +479,7 @@
                     <div class="price">
                         ￥{{$v->self_price}} <span>￥{{$v->market_price}}</span>
                     </div>
-                    <button class="btn button-default">加入购物车</button>
+                    <button class="btn button-default cartAdd" goods_id="{{$v->goods_id}}">加入购物车</button>
                     <button class="btn button-default Coll" goods_id="{{$v->goods_id}}" coll_status ="{{$v->coll_status}}">
                         @if(session('user_id')==NULL)
                             <span>收藏</span>
@@ -562,5 +566,21 @@
             },
             'json'
         );
+    })
+    $('.cartAdd').click(function(){
+        var _this=$(this);
+        var goods_id=_this.attr('goods_id');
+        $.post(
+            '/cart/cartAdd',
+            {goods_id:goods_id},
+            function(data){
+                alert(data.msg);
+                if(data.errno==0){
+                    location.href='/cart.html';
+                }else if(data.errno==2){
+                    location.href='/login.html';
+                }
+            },'json'
+        )
     })
 </script>
