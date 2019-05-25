@@ -271,7 +271,7 @@
                         <div class="price">
                             ￥{{$v->self_price}} <span>￥{{$v->market_price}}</span>
                         </div>
-                        <button class="btn button-default cartAdd" goods_id="{{$v->goods_id}}">点击加入购物车</button>
+                        <button class="btn button-default cartAdd" goods_id="{{$v->goods_id}}">加入购物车</button>
                         <button class="btn button-default Coll" goods_id="{{$v->goods_id}}" coll_status ="{{$v->coll_status}}">
                             @if(session('user_id')==NULL)
                                 <span>收藏</span>
