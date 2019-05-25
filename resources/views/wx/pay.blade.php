@@ -9,15 +9,15 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="HandheldFriendly" content="True">
 
-    <link rel="stylesheet" href="css/materialize.css">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/owl.theme.css">
-    <link rel="stylesheet" href="css/owl.transitions.css">
-    <link rel="stylesheet" href="css/fakeLoader.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/materialize.css">
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/owl.theme.css">
+    <link rel="stylesheet" href="/css/owl.transitions.css">
+    <link rel="stylesheet" href="/css/fakeLoader.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <link rel="shortcut icon" href="img/favicon.png">
 
@@ -176,7 +176,7 @@
                             <div class="icon">
                                 <i class="fa fa-hourglass-half"></i>
                             </div>
-                      订单详情
+                            404
                         </div>
                     </a>
                 </div>
@@ -362,25 +362,20 @@
 </div>
 <!-- end cart menu -->
 
-<!-- error 404 -->
+
+<!-- about us -->
 <div class="pages section">
     <div class="container">
-        <div class="error404">
-            @if($orderInfo->status==2)
-                <h4>烨</h4>
-                <h5>暂无订单</h5>
-                @else
-                <h4>666</h4>
-                <h5>商品详情</h5>
-                订单号： <p>{{$orderInfo->order_no}}</p>
-                商品总金额：  <p>{{$orderInfo->order_amount}}</p>
-                <button class="btn button-default" ><a href="/pay/payadd?order_id={{$orderInfo->order_id}}" style="color: #0b0b0b">支付宝支付</a></button>
-                <button class="btn button-default" ><a href="/wx/test?order_id={{$orderInfo->order_id}} " style="color: #0b0b0b">微信支付</a></button>
-                @endif
+        <div class="pages-head">
+            <h3>微信支付</h3>
+        </div>
+        <div class="about-us" id="qrcode">
+
         </div>
     </div>
 </div>
-<!-- end error 404 -->
+<!-- end about us -->
+
 
 <!-- loader -->
 <div id="fakeLoader"></div>
@@ -390,8 +385,8 @@
 <div class="footer">
     <div class="container">
         <div class="about-us-foot">
-            <h6>Mstore</h6>
-            <p>is a lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing elit.</p>
+            <h6>烨氏集团</h6>
+            <p>烨氏集团成立于1984年,1988年进入国际行业,经过三十余年的发展,成为国内领先的集团之一</p>
         </div>
         <div class="social-media">
             <a href=""><i class="fa fa-facebook"></i></a>
@@ -401,19 +396,22 @@
             <a href=""><i class="fa fa-instagram"></i></a>
         </div>
         <div class="copyright">
-            <span>© 2017 All Right Reserved</span>
+            <span>© 2019 版权所有 烨氏集团</span>
         </div>
     </div>
 </div>
 <!-- end footer -->
 
 <!-- scripts -->
-<script src="js/jquery.min.js"></script>
-<script src="js/materialize.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/fakeLoader.min.js"></script>
-<script src="js/animatedModal.min.js"></script>
-<script src="js/main.js"></script>
-
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/fakeLoader.min.js"></script>
+<script src="/js/animatedModal.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/weixin/qrcode.js"></script>
+<script type="text/javascript">
+    new QRCode(document.getElementById("qrcode"), "{{$code_url}}");
+</script>
 </body>
 </html>
