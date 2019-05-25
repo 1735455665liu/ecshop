@@ -370,8 +370,7 @@
             <h5>商品详情</h5>
             订单号： <p>{{$orderInfo->order_no}}</p>
               商品总金额：  <p>{{$orderInfo->order_amount}}</p>
-
-
+            <button class="btn button-default" >去支付</button>
         </div>
     </div>
 </div>
