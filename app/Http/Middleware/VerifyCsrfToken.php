@@ -26,6 +26,7 @@ class VerifyCsrfToken extends Middleware
         '/Coll/*',
         '/pay/*',
         "order",
-        "orderList"
+        "orderList",
+        '/notify'
     ];
 }
