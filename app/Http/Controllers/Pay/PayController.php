@@ -155,10 +155,7 @@ class PayController extends Controller
         $log_str = "\n>>>>>> " .date('Y-m-d H:i:s') . ' '.$p . " \n";
         file_put_contents('logs/alipay_notify',$log_str,FILE_APPEND);
 
-
-        $conten=file_get_contents('php://input');
-
-        $json=json_decode($conten,true);
+        $json=json_decode($p,true);
         $where=[
           'status'=>2
         ];
