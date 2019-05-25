@@ -20,13 +20,22 @@ class CartController extends Controller
         }
         $goods_id=$request->input('goods_id');
 
-        $cartInfo=CartModel::where('goods_id',$goods_id)->first();
+        $where1=[
+          'goods_id'=>$goods_id,
+          'user_id'=>$uid
+        ];
+        $cartInfo=CartModel::where($where1)->first();
 
         if($cartInfo){      //商品已存在购物车
-            $res=CartModel::where('cart_status',1)->first();
+            $where2=[
+                'goods_id'=>$goods_id,
+                'user_id'=>$uid,
+                'cart_status'=>1
+            ];
+            $res=CartModel::where($where2)->first();
             if($res){      //商品在购物车未删除
                 $buy_number=$cartInfo->buy_number+1;
-                $res=CartModel::where('goods_id',$goods_id)->update(['buy_number'=>$buy_number]);
+                $res=CartModel::where($where1)->update(['buy_number'=>$buy_number]);
                 if($res){
                     $response=[
                         'errno'=>0,
