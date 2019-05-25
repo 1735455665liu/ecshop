@@ -31,6 +31,7 @@ class OrderController extends Controller
           'order_no'=>$order_sn,
             'order_amount'=>$priceInfo,
             'create_time'=>time(),
+            'user_id'=>session('user_id')
 
         ];
         $orderInfo=DB::table('shop_order')->insertGetId($arr); //加入订单表

@@ -366,12 +366,17 @@
 <div class="pages section">
     <div class="container">
         <div class="error404">
-            <h4>666</h4>
-            <h5>商品详情</h5>
-            订单号： <p>{{$orderInfo->order_no}}</p>
-              商品总金额：  <p>{{$orderInfo->order_amount}}</p>
-            <button class="btn button-default" >支付宝支付</button>
-            <button class="btn button-default" >微信支付</button>
+            @if($orderInfo->status==2)
+                <h4>烨</h4>
+                <h5>暂无订单</h5>
+                @else
+                <h4>666</h4>
+                <h5>商品详情</h5>
+                订单号： <p>{{$orderInfo->order_no}}</p>
+                商品总金额：  <p>{{$orderInfo->order_amount}}</p>
+                <button class="btn button-default" ><a href="/pay/payadd?order_id={{$orderInfo->order_id}}" style="color: #0b0b0b">支付宝支付</a></button>
+                <button class="btn button-default" >微信支付</button>
+                @endif
         </div>
     </div>
 </div>

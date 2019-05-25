@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pay;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class PayController extends Controller
 {
@@ -30,15 +31,18 @@ class PayController extends Controller
     }
     //去支付
     public function pay(Request $request){
-        $id=rand(111111,999999);
-        $amout=$request->input('amount');
-        $pay=substr($amout,1);
-
+        //接受订单ID
+        $order_id=$request->input('order_id');
+        //根据订单ID查询数据
+        $orderInfo=DB::table('shop_order')->where(['order_id'=>$order_id])->first();
+        if(empty($orderInfo)){
+         die('订单不存在，亲');
+        }
         //业务参数
         $bizcont = [
-            'subject'           => 'Lening-Order: ' .$id,
-            'out_trade_no'      => $id,
-            'total_amount'      => $pay,
+            'subject'           => 'Lening-Order: ' .$order_id,
+            'out_trade_no'      => $orderInfo->order_no,
+            'total_amount'      => $orderInfo->order_amount,
             'product_code'      => 'QUICK_WAP_WAY',
         ];
 
@@ -153,6 +157,8 @@ class PayController extends Controller
 
 
         $conten=file_get_contents('php://input');
+
+
         var_dump($conten);
         echo 'success';
 
@@ -163,9 +169,12 @@ class PayController extends Controller
     /**
      * 支付宝同步通知
      */
-    public function Alireturn()
+    public function Alireturn(Request $request)
     {
-        echo '支付成功';
+            header("refresh:3;url='/'");
+            echo '支付成功,3秒之后到达首页';
+
+
     }
 
 }
