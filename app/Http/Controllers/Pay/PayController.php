@@ -30,9 +30,18 @@ class PayController extends Controller
 
     }
     //去支付
-    public function pay(){
+    public function pay(Request $request){
         //接受订单ID
-        $order_id=$_GET['order_id'];
+        $order_id=$request->input('order_id');
+        if(strpos($server=$_SERVER['HTTP_USER_AGENT'],"Mobile")){
+            $method='alipay.trade.wap.pay';
+            $product_code='QUICK_WAP_WAY';
+        }else{
+            $method='alipay.trade.page.pay';
+            $product_code="FAST_INSTANT_TRADE_PAY";
+
+        }
+
         //根据订单ID查询数据
         $orderInfo=DB::table('shop_order')->where(['order_id'=>$order_id])->first();
         if(empty($orderInfo)){
@@ -43,14 +52,14 @@ class PayController extends Controller
             'subject'           => 'Lening-Order: ' .$order_id,
             'out_trade_no'      => $orderInfo->order_no,
             'total_amount'      => $orderInfo->order_amount,
-            'product_code'      => 'QUICK_WAP_WAY',
+            'product_code'      =>$product_code,
         ];
 
 
         //公共参数
         $data = [
             'app_id'   => $this->app_id,
-            'method'   => 'alipay.trade.wap.pay',
+            'method'   => $method,
             'format'   => 'JSON',
             'charset'   => 'utf-8',
             'sign_type'   => 'RSA2',
@@ -177,12 +186,6 @@ class PayController extends Controller
 
 
     }
-    public function server(){
-        if(strpos($server=$_SERVER['HTTP_USER_AGENT'],"Mobile")){
 
-        }else{
-            $this->pay();
-        }
-    }
 
 }

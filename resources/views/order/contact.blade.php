@@ -150,7 +150,7 @@
                 <h5>商品详情</h5>
                 订单号： <p>{{$orderInfo->order_no}}</p>
                 商品总金额：  <p>{{$orderInfo->order_amount}}</p>
-                <button class="btn button-default" ><a href="/server?order_id={{$orderInfo->order_id}}" style="color: #0b0b0b">支付宝支付</a></button>
+                <button class="btn button-default" ><a href="/pay/payadd?order_id={{$orderInfo->order_id}}" style="color: #0b0b0b">支付宝支付</a></button>
                 <button class="btn button-default" ><a href="/wx/test?order_id={{$orderInfo->order_id}} " style="color: #0b0b0b">微信支付</a></button>
             @endif
         </div>

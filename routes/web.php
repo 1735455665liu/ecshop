@@ -70,6 +70,5 @@ Route::get('/weixin/paystatus', 'Wx\WxPayController@paystatus');      //支付�
 
 
 
-//server
-Route::get('/server','Pay\PayController@server');    //测试
+
 
