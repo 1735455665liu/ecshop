@@ -227,5 +227,11 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+    //配置config
+    "send" =>[
+        'username' =>"liuyong",
+        'pwd' =>"admin123",
+        'url' =>"http://sms.106jiekou.com/utf8/sms.aspx",
+    ],
 
 ];

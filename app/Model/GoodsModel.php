@@ -4,9 +4,9 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CartModel extends Model
+class GoodsModel extends Model
 {
-    public $table='shop_cart';
+    public $table='shop_goods';
     public $timestamps=false;
-    public $primaryKey="cart_id";
+    public $primaryKey="goods_id";
 }

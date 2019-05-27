@@ -17,6 +17,12 @@ class WxwebController extends Controller
             $userInfo=json_decode(file_get_contents($url2),true);
             $users=WxUserModel::where('openid',$userInfo['openid'])->first();
             if(!$users){
+
+                $uid=session('user_id');
+                if(!$uid){
+                    header('Refresh:3;url=/login.html');
+                    echo "请登录后授权";die;
+                }
                 $user_info=[
                     'openid'=>$userInfo['openid'],
                     'nickname'=>$userInfo['nickname'],
@@ -25,10 +31,17 @@ class WxwebController extends Controller
                     'city'=>$userInfo['city'],
                     'headimgurl'=>$userInfo['headimgurl'],
                     'create_time'=>time(),
+                    'uid'=>session('user_id')
                 ];
-                $res=WxUserModel::insertGetId($user_info);
+                $id=WxUserModel::insertGetId($user_info);
+                $wxInfo=WxUserModel::where('id',$id)->first();
+                session(['user_id'=>$wxInfo->uid,'user_name'=>$wxInfo->nickname]);
+                header("Location:/");
+            }else{
+                session(['user_id'=>$users->uid,'user_name'=>$users->nickname]);
+                header("Location:/");
             }
         }
-        header("Location:/");
+
     }
 }

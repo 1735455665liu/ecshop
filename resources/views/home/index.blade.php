@@ -43,6 +43,8 @@
         <li class="profil">
             <img src="img/屏幕截图(147).png" alt="">
             <h2>{{session('user_name')}}</h2>
+            <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxfb5d95e795f0a9d3&redirect_uri=http%3A%2F%2Fecshop.lzy1109.com%2Fwxweb&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect" style="color:white">微信授权</a>
+
         </li>
         <li><a href="setting.html"><i class="fa fa-cog"></i>Settings</a></li>
         <li><a href="about-us.html"><i class="fa fa-user"></i>About Us</a></li>

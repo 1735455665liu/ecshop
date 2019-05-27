@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Model\CartModel;
+use App\Model\GoodsModel;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
@@ -10,7 +10,7 @@ use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
 
-class CartController extends Controller
+class GoodsController extends Controller
 {
     use HasResourceActions;
 
@@ -79,14 +79,25 @@ class CartController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(new CartModel);
+        $grid = new Grid(new GoodsModel);
 
-        $grid->cart_id('Cart id');
         $grid->goods_id('Goods id');
-        $grid->buy_number('Buy number');
-        $grid->user_id('User id');
+        $grid->goods_name('Goods name');
+        $grid->self_price('Self price');
+        $grid->market_price('Market price');
+        $grid->goods_num('Goods num');
+        $grid->goods_score('Goods score');
+        $grid->goods_desc('Goods desc');
+        $grid->is_up('Is up');
+        $grid->is_new('Is new');
+        $grid->is_best('Is best');
+        $grid->is_hot('Is hot');
+        $grid->goods_img('Goods img');
+        $grid->goods_imgs('Goods imgs');
+        $grid->cate_id('Cate id');
+        $grid->brand_id('Brand id');
         $grid->create_time('Create time');
-        $grid->cart_status('Cart status');
+        $grid->coll_status('Coll status');
 
         return $grid;
     }
@@ -99,14 +110,25 @@ class CartController extends Controller
      */
     protected function detail($id)
     {
-        $show = new Show(CartModel::findOrFail($id));
+        $show = new Show(GoodsModel::findOrFail($id));
 
-        $show->cart_id('Cart id');
         $show->goods_id('Goods id');
-        $show->buy_number('Buy number');
-        $show->user_id('User id');
+        $show->goods_name('Goods name');
+        $show->self_price('Self price');
+        $show->market_price('Market price');
+        $show->goods_num('Goods num');
+        $show->goods_score('Goods score');
+        $show->goods_desc('Goods desc');
+        $show->is_up('Is up');
+        $show->is_new('Is new');
+        $show->is_best('Is best');
+        $show->is_hot('Is hot');
+        $show->goods_img('Goods img');
+        $show->goods_imgs('Goods imgs');
+        $show->cate_id('Cate id');
+        $show->brand_id('Brand id');
         $show->create_time('Create time');
-        $show->cart_status('Cart status');
+        $show->coll_status('Coll status');
 
         return $show;
     }
@@ -118,13 +140,24 @@ class CartController extends Controller
      */
     protected function form()
     {
-        $form = new Form(new CartModel);
+        $form = new Form(new GoodsModel);
 
-        $form->number('goods_id', 'Goods id');
-        $form->number('buy_number', 'Buy number');
-        $form->number('user_id', 'User id');
+        $form->text('goods_name', 'Goods name');
+        $form->decimal('self_price', 'Self price');
+        $form->decimal('market_price', 'Market price');
+        $form->number('goods_num', 'Goods num');
+        $form->number('goods_score', 'Goods score');
+        $form->textarea('goods_desc', 'Goods desc');
+        $form->switch('is_up', 'Is up');
+        $form->switch('is_new', 'Is new')->default(2);
+        $form->switch('is_best', 'Is best')->default(2);
+        $form->switch('is_hot', 'Is hot')->default(2);
+        $form->text('goods_img', 'Goods img');
+        $form->text('goods_imgs', 'Goods imgs');
+        $form->number('cate_id', 'Cate id');
+        $form->number('brand_id', 'Brand id');
         $form->number('create_time', 'Create time');
-        $form->switch('cart_status', 'Cart status')->default(1);
+        $form->number('coll_status', 'Coll status')->default(2);
 
         return $form;
     }
