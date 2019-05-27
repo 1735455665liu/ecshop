@@ -178,7 +178,12 @@ class PayController extends Controller
 
     }
     public function server(){
-        $server=$_SERVER;
+        if(strpos($server=$_SERVER['HTTP_USER_AGENT'],"Mobile")){
+            echo "移动端";
+        }else{
+            echo"pc端";
+        }
+
         var_dump($server);
     }
 
