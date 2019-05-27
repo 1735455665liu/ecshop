@@ -61,7 +61,7 @@ Route::get('/weixin/pay/notify', 'Wx\WxPayController@notify');      //支付通�
 
 
 //微信授权
-Route::get('/wxweb','Wx\WxwebControoler@wxweb');
+Route::get('/wxweb','Wx\WxwebControler@wxweb');
 
 Route::get('/weixin/paysuccess', 'Wx\WxPayController@paysuccess');      //支付成功回调
 Route::get('/weixin/paystatus', 'Wx\WxPayController@paystatus');      //支付成功状态
