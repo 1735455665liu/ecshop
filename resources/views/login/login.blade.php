@@ -257,7 +257,7 @@
 				<div class="row">
 					<form class="col s12" action="/logindo" method="post">
 						<div class="input-field">
-							<input type="text" name="user_name" class="validate" placeholder="USERNAME" required>
+							<input type="text" name="user_name" class="validate" placeholder="USERNAME||USERTEL" required>
 						</div>
 						<div class="input-field">
 							<input type="password" name="user_pwd" class="validate" placeholder="PASSWORD" required>
