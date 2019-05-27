@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 class OrderController extends Controller
 {
     //点击去结算
@@ -26,7 +27,7 @@ class OrderController extends Controller
         foreach ($res as $k=>$v){
             $priceInfo=$priceInfo+$v->self_price*$v->buy_number;
         }
-        $order_sn =rand(111111111,999999999);
+        $order_sn =date('Ymd').rand(11111,99999).time();
         $arr=[
           'order_no'=>$order_sn,
             'order_amount'=>$priceInfo,
@@ -74,7 +75,8 @@ class OrderController extends Controller
         $order_id=$request->input("order_id");
 //        var_dump()
         $where=[
-          'user_id'=>session('user_id')
+          'user_id'=>session('user_id'),
+            'order_id'=>$order_id
         ];
 
         $OrderInfo=DB::table('shop_order')->where($where)->first();
