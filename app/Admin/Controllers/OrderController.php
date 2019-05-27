@@ -130,7 +130,6 @@ class OrderController extends Controller
     {
         $form = new Form(new OrderModel);
 
-        $form->number('order_id', 'Order id');
         $form->text('order_no', 'Order no');
         $form->number('user_id', 'User id');
         $form->decimal('order_amount', 'Order amount');

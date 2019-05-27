@@ -17,4 +17,5 @@ Route::group([
     Route::resource('admin/cart',CartController::class);
     //订单
     Route::resource('admin/order',OrderController::class);
+
 });
