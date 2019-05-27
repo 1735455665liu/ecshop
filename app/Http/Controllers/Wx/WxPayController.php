@@ -161,6 +161,7 @@ class WxPayController extends Controller
             if($sign){       //签名验证成功
                 //TODO 逻辑处理  订单状态更新
                 DB::table('shop_order')->where(['order_no'=>$xml->order_no])->update(['status'=>2]);
+                header("refresh:3;url:/Weixin/paysuccess");
             }else{
                 //TODO 验签失败
                 echo '验签失败，IP: '.$_SERVER['REMOTE_ADDR'];
