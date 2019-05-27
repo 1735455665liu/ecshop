@@ -16,6 +16,8 @@ Route::get('product-list.html','Goods\GoodsController@goodslists');    //商品�
 
 Route::get('register.html','Reg\RegController@reg');  //注册
 Route::post('/regdo','Reg\RegController@regdo');  //注册执行
+Route::post('/getcode','Reg\RegController@getcode');  //获取验证码
+
 Route::get('login.html','Login\LoginController@login');  //登录
 Route::post('/logindo','Login\LoginController@logindo');  //登录执行
 Route::get('/loginout','Login\LoginController@loginout');

@@ -27,6 +27,7 @@ class VerifyCsrfToken extends Middleware
         '/pay/*',
         "order",
         "orderList",
-        '/notify'
+        '/notify',
+        '/getcode'
     ];
 }
