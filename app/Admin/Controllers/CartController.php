@@ -120,7 +120,6 @@ class CartController extends Controller
     {
         $form = new Form(new CartModel);
 
-        $form->number('cart_id', 'Cart id');
         $form->number('goods_id', 'Goods id');
         $form->number('buy_number', 'Buy number');
         $form->number('user_id', 'User id');
