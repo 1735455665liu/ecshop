@@ -57,8 +57,17 @@ Route::post('/notify','Pay\PayController@notify');    //异步通知
 
 //微信支付
 Route::get('wx/test','Wx\WxPayController@t_test');  //扫码支付
-Route::get('/Weixin/paysuccess', 'Wx\WxPayController@success');      //支付成功
 Route::get('/weixin/pay/notify', 'Wx\WxPayController@notify');      //支付通知回调
+
 
 //微信授权
 Route::get('/wxweb','Wx\WxwebControoler@wxweb');
+
+Route::get('/weixin/paysuccess', 'Wx\WxPayController@paysuccess');      //支付成功回调
+Route::get('/weixin/paystatus', 'Wx\WxPayController@paystatus');      //支付成功状态
+
+
+
+//server
+Route::get('/server','Pay\PayController@server');    //测试
+

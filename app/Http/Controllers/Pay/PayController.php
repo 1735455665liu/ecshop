@@ -177,5 +177,9 @@ class PayController extends Controller
 
 
     }
+    public function server(){
+        $server=$_SERVER;
+        var_dump($server);
+    }
 
 }

@@ -296,6 +296,20 @@
 <script src="/js/weixin/qrcode.js"></script>
 <script type="text/javascript">
     new QRCode(document.getElementById("qrcode"), "{{$code_url}}");
+    //ajax轮询，检查订单支付状态
+    setInterval(function(){
+        $.ajax({
+            url :'/weixin/paystatus?order_id='+"{{$order_id}}",
+            type: 'get',
+            dataType:'json',
+            success: function(res){
+                if(res.status==0){
+                    alert("支付成功");
+                    location.href = "/weixin/paysuccess?order_id={{$order_id}}";
+                }
+            }
+        });
+    },2000)
 </script>
 </body>
 </html>
