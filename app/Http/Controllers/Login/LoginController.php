@@ -45,7 +45,7 @@ class LoginController extends Controller
             header("refresh:3;url=/login.html");
         }else{
             echo '退出成功！';
-            $request->session()->forget('user_id');
+            $request->session()->forget(['user_id','user_name']);
             header("refresh:3;url=/");
         }
     }
