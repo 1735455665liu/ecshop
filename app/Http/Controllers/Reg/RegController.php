@@ -60,7 +60,7 @@ class RegController extends Controller
             "status"=>1,
         ];
         $time=time();
-        $info=DB::table("shop_code")->where($where)->where(["out_time",">",$time])->first();
+        $info=DB::table("shop_code")->where($where)->where("out_time",">",$time)->first();
         if(!empty($info)){
             $hash_pwd=password_hash($user_pwd,PASSWORD_DEFAULT);
             $data=[
