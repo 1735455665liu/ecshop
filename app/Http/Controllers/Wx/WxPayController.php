@@ -50,7 +50,8 @@ class WxPayController extends Controller
 //        echo 'code_url: '.$data->code_url;echo '<br>';
 //        die;
         $data=[
-            'code_url'=>$data->code_url
+            'code_url'=>$data->code_url,
+            'order_id'=>$order_id
         ];
 
         return view('wx/pay',$data);
@@ -169,5 +170,30 @@ class WxPayController extends Controller
         }
         $response = '<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>';
         echo $response;
+    }
+    //成功回调
+    public function paysuccess()
+    {
+        $order_id = $_GET['order_id'];
+        echo '订单id: '.$order_id . "支付成功";
+    }
+    //订单支付状态
+    public function paystatus()
+    {
+        $order_id = intval($_GET['order_id']);
+        $info = DB::table('shop_order')->where(['order_id'=>$order_id])->first();
+        $response = [];
+        if($info){
+            //已支付
+            if($info->pay_status>1){
+                $response = [
+                    'status'    => 0,
+                    'msg'       => 'ok'
+                ];
+            }
+        }else{
+            die("订单不存在");
+        }
+        die(json_encode($response));
     }
 }
