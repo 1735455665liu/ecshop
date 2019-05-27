@@ -160,6 +160,7 @@ class WxPayController extends Controller
             $sign = true;
             if($sign){       //签名验证成功
                 //TODO 逻辑处理  订单状态更新
+                DB::table('shop_order')->where(['order_no'=>$xml->order_no])->update(['status'=>2]);
             }else{
                 //TODO 验签失败
                 echo '验签失败，IP: '.$_SERVER['REMOTE_ADDR'];
@@ -169,5 +170,8 @@ class WxPayController extends Controller
         $response = '<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>';
         echo $response;
     }
-
+    public function success(){
+        $order_id = $_GET['order_id'];
+        echo "ID：".$order_id."支付成功";
+    }
 }

@@ -341,7 +341,7 @@
 
                     if(data.errno==1){
                         alert(data.msg);
-                        location.href="/orderList?order_id="+data.order_id;
+                        location.href="/contact.html?order_id="+data.order_id;
                     }else{
                         alert(data.msg);
                     }
