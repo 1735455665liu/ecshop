@@ -35,7 +35,7 @@ class WxwebController extends Controller
                 ];
                 $id=WxUserModel::insertGetId($user_info);
                 $wxInfo=WxUserModel::where('id',$id)->first();
-                session(['user_id'=>$users->uid,'user_name'=>$users->nickname]);
+                session(['user_id'=>$wxInfo->uid,'user_name'=>$wxInfo->nickname]);
                 header("Location:/");
             }else{
                 session(['user_id'=>$users->uid,'user_name'=>$users->nickname]);
