@@ -50,10 +50,6 @@
         @if(session("user_id")==NULL)
             <li><a href="login.html"><i class="fa fa-sign-in"></i>Login</a></li>
             <li><a href="register.html"><i class="fa fa-user-plus"></i>Register</a></li>
-<<<<<<< HEAD
-            <li><a href="/loginout"><i class="fa fa-sign-in"></i>loginout</a></li>
-=======
->>>>>>> coll
         @else
             <li><a href="/loginout"><i class="fa fa-sign-in"></i>loginout</a></li>
         @endif
