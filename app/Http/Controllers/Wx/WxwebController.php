@@ -21,7 +21,7 @@ class WxwebController extends Controller
                 $uid=session('user_id');
                 if(!$uid){
                     header('Refresh:3;url=/login.html');
-                    echo "请登录后授权";
+                    echo "请登录后授权";die;
                 }
                 $user_info=[
                     'openid'=>$userInfo['openid'],
