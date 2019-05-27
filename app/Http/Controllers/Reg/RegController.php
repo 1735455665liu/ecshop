@@ -101,8 +101,8 @@ class RegController extends Controller
         $time=time();
         $out_time=$time+3600;
         $status=1;
-        $obj = new \Send();
-        $rus = $obj->show($user_tel,$code);
+//        $obj = new \Send();
+        $rus = $this->show($user_tel,$code);
         $data = [
             "user_tel"=>$user_tel,
             "user_code"=>$code,
@@ -122,5 +122,20 @@ class RegController extends Controller
             $arr = ["code" => 1, "msg" => "发送验证码失败"];
             return json_encode($arr);
         }
+    }
+
+    //第三方类库
+    public function show($tel,$num){
+
+        $content = "您的验证码是：【{$num}】。如需帮助请联系客服。";
+        $ch = curl_init();//初始化
+        $arr = config("app.send");//调用config
+        $str ="{$arr['url']}?account={$arr['username']}&password={$arr['pwd']}&mobile={$tel}&content={$content}";
+        curl_setopt($ch,CURLOPT_URL,$str);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $info = curl_exec($ch);
+        return $info;
+
     }
 }
