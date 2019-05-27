@@ -38,8 +38,7 @@
         },
         "classmap": [
             "database/seeds",
-            "database/factories",
-            "app/extend/send"
+            "database/factories"
         ]
     },
     "autoload-dev": {
