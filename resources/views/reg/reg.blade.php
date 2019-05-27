@@ -264,6 +264,13 @@
 							<input type="email" name="user_email" id="user_email" placeholder="EMAIL" class="validate" required>
 						</div>
 						<div class="input-field">
+							<input type="text" name="user_tel" id="user_tel" placeholder="USER_TEL" class="validate" required>
+						</div>
+						<div class="input-field">
+							<input type="text" name="user_code" id="user_code" placeholder="CODE" class="validate" required>
+							<button  id="dateBtn">获取验证码</button>
+						</div>
+						<div class="input-field">
 							<input type="password" name="user_pwd"  id="user_pwd" placeholder="PASSWORD" class="validate" required>
 						</div>
 						<div class="input-field">
@@ -310,7 +317,7 @@
 	<script src="js/fakeLoader.min.js"></script>
 	<script src="js/animatedModal.min.js"></script>
 	<script src="js/main.js"></script>
-
+	<script src="js/leftTime.min.js"></script>
 </body>
 </html>
 {{--<script>--}}
@@ -363,3 +370,40 @@
 {{--		});--}}
 {{--	}--}}
 {{--</script>--}}
+<script>
+
+	//60秒倒计时
+	$("#dateBtn").on("click",function(){
+		var _this=$(this);
+		if(!$(this).hasClass("on")){
+			var data={};
+			var user_tel=$("#user_tel").val();
+			data.user_tel=user_tel;
+			var url="http://ecshop.lzy1109.com/getcode";
+			$.ajax({
+			type:"post",
+			data:data,
+			url:url,
+			data:data,
+			dataType:"json",
+			success:function(msg){
+				if(msg.code==1){
+					alert(msg.msg);
+				}else{
+				    alert(msg.msg);
+				}
+			}
+			});
+			$.leftTime(60,function(d){
+				if(d.status){
+				_this.addClass("on");
+				_this.html((d.s=="00"?"60":d.s)+"秒后重新获取");
+				}else{
+				_this.removeClass("on");
+				_this.html("获取验证码");
+				}
+				});
+			}
+	});
+
+</script>
