@@ -30,9 +30,9 @@ class PayController extends Controller
 
     }
     //去支付
-    public function pay(Request $request){
+    public function pay(){
         //接受订单ID
-        $order_id=$request->input('order_id');
+        $order_id=$_GET['order_id'];
         //根据订单ID查询数据
         $orderInfo=DB::table('shop_order')->where(['order_id'=>$order_id])->first();
         if(empty($orderInfo)){
@@ -179,12 +179,10 @@ class PayController extends Controller
     }
     public function server(){
         if(strpos($server=$_SERVER['HTTP_USER_AGENT'],"Mobile")){
-            echo "移动端";
-        }else{
-            echo"pc端";
-        }
 
-        var_dump($server);
+        }else{
+            $this->pay();
+        }
     }
 
 }
