@@ -264,7 +264,7 @@
 						</div>
 						<a href=""><h6>Forgot Password ?</h6></a>
 						<input class="btn button-default" type="submit" value="LOGIN">
-						<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxfb5d95e795f0a9d3&redirect_uri=http%3A%2F%2Fecshop.lzy1109.com&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect" class="btn button-default">微信登录</a>
+						<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxfb5d95e795f0a9d3&redirect_uri=http%3A%2F%2Fecshop.lzy1109.com%2Fwxweb&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect" class="btn button-default">微信登录</a>
 					</form>
 				</div>
 			</div>
