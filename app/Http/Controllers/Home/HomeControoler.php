@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Model\CartModel;
+use App\Model\Weixin\WxUserModel;
 class HomeControoler extends Controller
 {
 
@@ -17,8 +18,19 @@ class HomeControoler extends Controller
             $arr=json_decode(file_get_contents($url1),true);
             $url2='https://api.weixin.qq.com/sns/userinfo?access_token='.$arr['access_token'].'&openid='.$arr['openid'].'&lang=zh_CN';
             $userInfo=json_decode(file_get_contents($url2),true);
-            print_r($userInfo);die;
-//            $users=User::where('openid',$userInfo['openid'])->first();
+            $users=WxUserModel::where('openid',$userInfo['openid'])->first();
+            if(!$users){
+                $user_info=[
+                    'openid'=>$userInfo['openid'],
+                    'nickname'=>$userInfo['nickname'],
+                    'country'=>$userInfo['country'],
+                    'province'=>$userInfo['province'],
+                    'city'=>$userInfo['city'],
+                    'headimgurl'=>$userInfo['headimgurl'],
+                    'create_time'=>time(),
+                ];
+                WxUserModel::insertGetId($user_info);
+            }
         }
 
 
